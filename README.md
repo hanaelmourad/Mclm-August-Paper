@@ -2,7 +2,7 @@ This repository contains an R project with the following subfolders and files ar
 
 ## Corpus description
 
-##Anthrocorpus
+Anthrocorpus
 The Anthropocene corpus, serving as the target corpus, consists of 7 post-apocalyptic novels written post-1945.
 
 frequency list (types in list: 42983, tokens in list: 477332)
@@ -10,7 +10,7 @@ frequency list (types in list: 42983, tokens in list: 477332)
 ## Genre: 
 Post-apocalyptic fiction
 
-##Bestellers Corpus
+Bestsellers Corpus
 Bestsellers Corpus, serving as the reference corpus, consists of 8 random best sellers.
 
 ##Genre:

@@ -26,14 +26,14 @@ collected novels and converted to .TXT format
 
 ## Scripts
 Rscript.R contains:
-- exploratory-analysis: which analyses individual novels, concordances, collocations and word frequencies
+- exploratory-analysis: which analyses individual novels, concordances, collocations, and word frequencies
 - keyword-analysis: which compares the Anthrocorpus to the Bestsellers corpus to extract Anthropocene keywords.
 
 
 
 ## Quarto
-- ca-paper.qmd: the source Quarto file of the paper.
-- ca-paper.html, ca-paper.pdf: the output in different formats.
+- Anthropocene-Literature.qmd: the source Quarto file of the paper.
+- Anthropocene-Literature.html, Anthropocene-Literature.pdf: the output in different formats. The paper should be read in html format for better browsing/scrolling experience.
 
 ## Helpers
 - bibliography.bib:, the bibtex file for literature references

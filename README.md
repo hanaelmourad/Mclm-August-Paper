@@ -4,16 +4,13 @@ This repository contains an R project with the following subfolders and files ar
 There are two corpora in the folder; a target corpus and a reference corpus.
 
 The Anthropocene corpus, serving as the target corpus, consists of 7 post-apocalyptic novels written between 2006 and 2017.
-
 frequency list (types in list: 42983, tokens in list: 477332)
-
-## Genre: 
+Genre: 
 Post-apocalyptic fiction
 
 
 Bestsellers Corpus, serving as the reference corpus, consists of 8 random best sellers.
-
-##Genre:
+Genre:
 Science fiction, fantasy, romance, epic fantasy, speculative fiction, thriller, contemporary romance
 
 ## Language: 

@@ -1,0 +1,499 @@
+---
+title: "A Statistical Look into the Occurences of the Anthropocene in Cli-Fi"
+author: "Hana El Mourad"
+format:
+  html:
+    The Anthropocene Novel has been the topic of literary focus in recent years due to the growing number of fictions that imagine the end of the world as propelled by humankind. This genre presents a valuable opportunity to understand how literature deals with climate change and the different environmental issues that humanity is facing.e: journal
+    toc: true
+    code-link: true
+    abstract: "This paper explores seven Cli-Fi novels by examining the statistics of the Anthropocene keywords and collocations using R and the mclm package"
+  pdf:
+    lof: true
+    lot: true
+    toc: true
+    cite-method: natbib
+number-sections: true
+execute:
+  echo: false
+bibliography:
+  - bibliography.bib
+  - packages.bib
+csl: unified-style-sheet-for-linguistics.csl
+prefer-html: true
+---
+
+# Part I: Introduction
+
+## Study Background
+
+Literary works have long been considered a witness to the time they were conceived. Works of fiction depict social phenomena and capture a portrait of humanity's struggles. With that, every year, decade, and century brings new themes. From Greek Mythology and Roman Epics to Modernist and contemporary literature passing through Romanticism, Realism, and Naturalism, novels contain clues and signs of each age and reflect the obsessions and fears of each respective generation.
+
+> From 2000, a group of geologists, led by the Nobel Prize winner Paul Crutzen, began to argue the present period of Earth's history should be known as the Anthropocene. [...] According to proponents of the term Anthropocene, human activity has so altered the history of the Earth that it has become necessary to declare a new epoch to signify this impact. @Trexler_2015 [1]
+
+After the Second World War, a new geological era started, and with it, a new time of literature emerged: the literature of the Anthropocene or Post-1945 Fiction. These works of fiction carried in their pages reflections of the current state of planet Earth. Their scenarios often revolve around the end of the world due to human interference. This specific genre has been named Cli-Fi or Climate Fiction, a sub-genre of science fiction that delves into the intricacies of the climate crisis.
+
+One of the main and most controversial books written on the topic of Anthropocene fiction is written by Amitav Ghosh, an Indian novelist, and literary critic**.** In his book, *The Great Derangement: Climate Change and the Unthinkable*, Ghosh accuses the modern novel writer of climate silence on one hand, and fetishizing climate disasters and setting them in such exaggerated forms that people do not take the events that occur in those novels seriously on the other hand. He says "There are surely very few writers today who are oblivious to the current disturbances in climate systems the world over. Yet, it is a striking fact that when novelists do choose to write about climate change it is almost always outside of fiction." @ghosh_2017 [8]
+
+Other literary critics believe that the novel represents the perfect vehicle to warn people about possible futures if our human actions do not change. Such critics include Adam Trexler who published a book titled *Anthropocene Fictions: The Novel in a Time of Climate Change* in which he insists that "Climate novels have a role to play in our collective accounting of the Anthropocene, even those that were written in the hope that such a day would never come to pass." @Trexler_2015 [237]
+
+> The corpus of climate change fiction represents an enormous and growing archive. There cannot be a single history of these works, based on a corresponding history of climate science or climate politics, because the novels in question have continually reconfigured what it means to live in the Anthropocene, to be part of a self-conscious species that is actively transforming conditions that have reigned throughout its evolutionary history. @Trexler_2015 [27]
+
+In my Master thesis that I have written for my Master of Western Literature titled *In Defense of Science Fiction: Can Sci-Fi Novels Save the World*, I argued that Cli-Fi is an extremely powerful tool that can appeal to readers from every age and demography. Amitav Ghosh laments the current state of fiction and the silence surrounding the topic of "climate change" which he believes has resisted till this day the pages of serious fiction. While Ghosh laments the absence of climate change in serious fiction due to an "imaginative and cultural failure"@ghosh_2017. In my thesis, I challenged Ghosh's views by putting 2 Sci-Fi novels under the spotlight and analyzing how each novel depicts the end of the world scenarios and how that makes them innocent of Ghosh's accusations of Climate deafness.
+
+```{r results='hide', message=FALSE, warning=FALSE}
+#| label: setup
+library(here)
+library(tidyverse)
+library(mclm)
+library(kableExtra)
+library(knitr)
+
+path_to_corpus <- here("anthrocorpus")
+path_to_reference_corpus <-here("reference_corpus_random")
+anthro_fnames <- get_fnames(path_to_corpus)
+reference_fnames <- get_fnames(path_to_reference_corpus)
+flist <-freqlist(anthro_fnames)
+
+n_tokens(flist)
+n_types(flist)
+```
+
+Expanding on this foundation, this paper will encompass the evaluation of an 'Anthropocene' corpus containing the two previously analyzed novels in addition to five works of fiction chosen for being emblematic of the Anthropocene. It has `r prettyNum(n_tokens(flist))` tokens and `r n_types(flist)` types, giving us a type-token ratio of `r round(n_types(flist)/n_tokens(flist), 2)`. My goal through this research is to investigate this theory by using the language R to conduct an exploratory analysis and a keyword analysis and examine the words used in the Anthropocene literature. Therefore, the aim of this study is twofold:1- examining how each novel depicts the Anthropocene, and 2- Identifying recurring themes shared among the novels, shedding light on the prevailing concerns of Cli-Fi writers.
+
+This paper is divided into two parts: Part I of this paper contains information about the study background, literature review, and the general Anthropocene themes. I then move to discuss the Methodology as well as corpus description where information about both target and reference corpora is presented. Part II contains a statistical exploration of individual novels from the Anthropocene corpus by looking at collocations while using different association measures to assess their strength. From there, a keyword analysis is conducted where the Anthrocorpus (target corpus) is examined against a Bestsellers corpus (reference corpus) comprising eight random Bestsellers. Finally, an interpretation of the results is presented, and concluding remarks are made.
+
+By taking several different novels written by different authors, with different backgrounds, styles, and plots, and examining their overarching themes, this paper strives to uncover the main preoccupation of Cli-fi writers. It is therefore my hope to prove that fiction writers are continuously inviting us to rethink our relationship with nature and the planet we dwell on through their texts, subtext, and context.
+
+## Climate Fiction Themes
+
+The Anthropocene novels commonly explore themes of environmental devastation, resource scarcity, mobility/migration, and societal collapse as a result of climate change. They often depict a future world in which the effects of climate change have become catastrophic and irreversible, leading to the collapse of human civilization and the destruction of the natural world.
+
+One of the main themes in Cli-Fi is the idea of *environmental devastation*, which is often depicted through the portrayal of extreme weather events, sea-level rise, pandemics and other effects of climate change. Disaster narratives paint different worlds where we can see the potential consequences of human actions and technology on the environment.
+
+Another common theme is *resource scarcity*, which is often depicted through the portrayal of food and water shortages, energy crises, and other effects of climate change. These scenarios show how climate change will affect the availability of resources and how this will impact human society.
+
+The Anthropocene novel also frequently addresses issues of forced *migration and displacement.* Environmental disasters, rising sea levels, and the degradation of land can lead to the displacement of individuals and communities, which becomes a central theme in these novels.
+
+*Societal collapse* represents another of the main themes of the Anthropocene novel, which is often depicted through the portrayal of war, anarchy, and other effects of climate change. This theme usually revolves around human societies in the face of extreme climate crises and involves stories about the collapse of civilization as we know it.
+
+## Methodology
+
+### Data Collection and Pre-processing
+
+The corpus was collected by converting ePub files into simple text (.txt) files. A clean-up of both corpora's text files was conducted whereby extra elements such as the preface, author's note, and acknowledgments were removed to provide better results. A stop list was also created and used to remove the most common connection words in the English Language. Moreover, the names of the main characters of each novel were removed, as well as unique, hyper-specific, details of the books (e.g. city/country names, organization names).
+
+### Project Script
+
+The script mentioned in this paper was written in R. R is a programming language that is particularly helpful when it comes to examining large corpora or datasets. Its power and popularity among data scientists and linguists lie in its rich implementation as well as the availability of libraries. Using R [@R-base] for statistical analysis with support from four packages {tidyverse} for data manipulation and visualization [@tidyverse2019], {here} [@R-here] for easy file referencing, and finally {kableExtra} [@Zhu_2021]for table manipulation, different computations and visualizations were achieved.
+
+The \`{mclm}\` package `{mclm}` is developed as a "companion to the Methods in Corpus Linguistics course at the Advanced Master in Linguistics (KU Leuven)" [@R-mclm]. It allows users to conduct various analyses and apply different techniques in the field of corpus linguistics. In this study, `{mclm}` was used to run different computations and statistical operations in order to examine how contemporary authors depict the end of the world and its causes.
+
+The project was uploaded to GitHub. It includes several folders and files including a ReadMe file that describes the contents of the GitHub repository as well as the script in one R document, a stop-list, a quarto document, and other files such as a style sheet.
+
+### Techniques
+
+This paper makes use of two main techniques used in corpus linguistics: collocations and keyword analysis. In order to use either techniques word frequencies must be calculated. Word frequencies are a very direct way of quickly assessing a text and its themes. It is also a very powerful tool when used alongside different data association measures. In the `{mclm}` package, word frequency is represented by *freqlist* which is a function that builds the word frequency list from a corpus.
+
+> A central question in text mining and natural language processing is how to quantify what a document is about. Can we do this by looking at the words that make up the document? One measure of how important a word may be is its term frequency (tf). @Silge_2017 [31]
+
+According to Stefan Evert, @Evert_2007 [4] Chair of Computational Corpus Linguistics in Osnabrück, Germany, "we define a collocation as a combination of two words that exhibit a tendency to occur near each other in natural language," By looking at the collocations of these words or which words occur most frequently next to them, we get a better understanding of the context those words occur in.
+
+A keyword analysis is a text or group of text compared to a reference corpus. While a collocation analysis focuses on certain words and sees which words are attracted to the context of that word. These methods are among the oldest and most used in the field of linguistics and have been practiced long before computers. Their popularity is attributed to their systematic and efficient way of uncovering patterns, themes, and linguistic features within large bodies of text. Moreover, they help reveal intricate relationships between words and how frequently they appear together in a text corpus.
+
+> For keyword analysis, the target context is a target (sub)corpus and the reference context is a reference (sub)corpus. For collocation analysis based on surface co-occurrences, the target context is the text surrounding the occurrences of the node term and the reference context is all the other text in the corpus. @R-mclm
+
+Association measures are how we describe the strength of attraction between two words or a word and a text. They are used in both techniques implemented in this paper. When we compare how often words occur together versus how often they do not, we can gain a better understanding of the context in which these words occur and extract insights about the text itself. There are two main categories of association measures: effect size measures and strength of evidence measures. To get results that are loyal to the size of the sample I was analyzing, it is important to use a combination of both. Effect size measures are measures that look at the size of the effect and how strong the attraction is but do not consider the sample size. That is why it is important to combine them with statistical measures that are going to be more loyal to the size of the data. The strength of evidence measures are statistical measures that look at how much difference there actually is between the observed and expected value. If you have a strong effect, you do not need a lot of data. Conversely, if you have a lot of data, you don't need as strong of an effect**.**
+
+The first step taken in the analysis was to zoom in on each individual novel of the Anthropocene corpus by looking at the most frequent words by utilizing the *freqlist* function. The next step was to look closely at those words and examine their larger context by looking at their collocations to gain a better understanding of how they occur in the texts.
+
+From there on, a keyword analysis was performed to extract the "words of the Anthropocene". To this end, this project also makes use of a second corpus used as a reference corpus to be able to run a keyword analysis and extract Anthropocene-centered words and themes. This is done by selecting the words that are "attracted" to a specific corpus in comparison to a reference corpus by looking at association scores (assoc_scores()).
+
+For both collocations and keywords analyses, the output of assoc_scores() was evaluated following three criteria:
+
+-   A **frequency** of 3 or higher in the target context:
+
+-   A **PMI score** of 1.1 or higher.
+
+-   A **signed** $G^2$ score of 4 or higher.
+
+Thresholds were indicated for all three association measures to eliminate low-frequency words and flow attraction words.
+
+## Corpus Composition
+
+### Anthrocorpus: The Target Corpus
+
+The Anthropocene Corpus (Anthrocorpus) is a collection of seven **Cli-Fi** novels that address the theme of the Anthropocene, a geological era marked by the significant impact of human activity on the Earth's ecosystems. It has `r prettyNum(n_tokens(flist))` tokens and `r n_types(flist)` types, giving us a type-token ratio of `r round(n_types(flist)/n_tokens(flist), 2)`.The corpus includes the following novels:
+
+1- *Annihilation* by American Author Jeff Vandermeer - published in 2014
+
+2- *Memory of Water* by Finnish Novelist Emily Itaranta - published in 2012
+
+3- *Oryx and Crake* by Canadian Novelist Margaret Atwood - published in 2003
+
+4- *Severance* by Chinese American Novelist Ling Ma - published in 2018
+
+5- *Station Eleven* by Canadian Emily St. John Mandel - published in 2014
+
+6- *The Road* by American Writer Cormac McCarthy - published in 2006
+
+7- *Atmospheric Disturbances* by Canadian Israeli Writer Rivka Galchen- Published in 2008
+
+These novels were selected for their relevance to the theme of the Anthropocene and the way they depict the relationship between humans and the environment. The corpus period spans from 2003 to 2018. This corpus, though compact, carries enough variety and weight to provide a unique opportunity to examine the preoccupation of modern writers with the end of the world.
+
+### Bestsellers: The Reference Corpus
+
+The reference corpus used for keyword analysis was assembled by randomly selecting 8 best-selling fiction and non-fiction books. 13 books were initially selected, then 5 books were removed due to their relevance to the Anthropocene.
+
+1.  *Absalom's Daughters* by Suzanne Feldman - published in 2016, Historical Fiction
+
+2.  *It Ends With Us* by Colleen Hoover - published in 2016, Contemporary Romance
+
+3.  *The Bulgari Connection* by Fay Weldon - published in 2000, Literary Fiction
+
+4.  *The Silver Sun* by Nancy Springer - published in 1977, Sci-Fi/Fantasy
+
+5.  *The Three-Body Problem* by Cixin Liu(writer) Ken Liu(Translator) - published in 2006, Speculative fiction
+
+6.  *Triple* by Ken Follett - published in 1979, Thriller
+
+7.  *Trust* by Hernan Diaz - published in 2022, Historical Fiction
+
+8.  *Yumi and the Nightmare Painter* by Brandon Sanderson - published in 2023, Epic Fantasy
+
+This was to allow for a later keyword analysis which would underline the words that are more unique to the Anthropocene Corpus.
+
+# Part II: A Deep Look Into the Anthropocene
+
+## Themes by Novel
+
+In the following section, for the purpose of brevity in this paper, I will examine closely four of the seven novels and how each of those novels imagines the end of the world and how the themes of the Anthropocene manifest in those novels. As mentioned above, those themes include environmental devastation, resource scarcity, mobility/migration, and societal collapse. In order to mine the texts for those themes, I will resort to different methods and techniques used in text mining.
+
+In the following sections, I will zoom in on each novel and examine closely the most frequent words, their collocations, and their association scores filtered by different strength measures.
+
+Thus, word frequencies for 4 books from the Anthropocene corpus were computed. This allows us to explore immediately yet superficially words that tie our target corpus to the themes of the Anthropocene. However, only looking at how frequently a word occurs in a text is not fully indicative of the nature of the text. Context is also very important to look at, as well as statistical likelihoods. So, the next step was to select several words chosen out of the top 50 most frequent words that could be relevant to the Anthropocene and its themes. I then looked at their collocation frequencies and their strengths of association, or which words appear more than others alongside the most frequent words.
+
+```{r, results = FALSE}
+#| label: load-stoplist-functions
+### Preparations: Libraries, Paths, Fnames, Stop-List, Functions
+
+# The necessary libraries
+library(here)
+library(tidyverse)
+library(mclm)
+library(kableExtra)
+
+# Load Directory paths to target/reference corpus
+path_to_corpus <- here("anthrocorpus")
+path_to_reference_corpus <-here("reference_corpus_random")
+
+# Load filenames
+anthro_fnames <- get_fnames(path_to_corpus)
+reference_fnames <- get_fnames(path_to_reference_corpus)
+
+# Load individual book names from the target corpus
+atwood_fname <- anthro_fnames %>% keep_re("target_atwood.txt")
+itaranta_fname <- anthro_fnames %>% keep_re("target_itaranta.txt")
+ma_fname <- anthro_fnames %>% keep_re("target_ma.txt")
+mandel_fname <- anthro_fnames %>% keep_re("target_mandel.txt")
+mccarthy_fname <- anthro_fnames %>% keep_re("target_mccarthy.txt")
+vandermeer_fname <- anthro_fnames %>% keep_re("target_vandermeer.txt")
+galchen_fname <- anthro_fnames %>% keep_re("target_galchen.txt")
+
+
+
+# load stop list with the connecting words/names/cities to drop from analysis
+stop_list2 <- read_types(here::here("stop_list2_names.txt"))
+
+# Custom function, allows for a uniformal and quick frequency list creation
+# Expected input: file name(fname)
+create_frequency_list <- function(fname){ 
+  frequencies <- fname %>% freqlist() %>% drop_types(stop_list2)
+}
+
+# Custom function, allows for a uniformal and quick collocations creation, with
+#   a built in dropping of tokens by the stop list.
+# Expected input: file name(fname) + regular expression e.g. "(?xi) ^jimmy$"
+create_surf_cooc <- function(fname,re_exp){
+  s_cooc <- fname %>% surf_cooc(re_exp, w_left = 3, w_right = 3, re_boundary=TRUE)
+  s_cooc$target_freqlist <- s_cooc$target_freqlist %>% drop_types(stop_list2)
+  s_cooc$ref_freqlist <- s_cooc$ref_freqlist %>% drop_types(stop_list2)
+  s_cooc
+}
+
+# Custom function, allows for the display of frequencies as tibble, original_rank discarded, arranged by rank.
+# Expected input: frequency list(flist) + number (how many top rows to display)
+#   e.g. display_flist_as_tibble(flist_atwood, 50)
+display_flist_as_tibble <- function(flist,number) {
+  flist %>% as_tibble() %>% arrange((rank)) %>% select(rank, type, abs_freq, nrm_freq) %>% head(number) %>% kbl() %>% kable_paper(font_size = 14)
+}
+```
+
+```{r}
+#| label: novels-freqlist
+# Generation of the individual frequency lists, of the target corpus novels
+flist_mccarthy <- create_frequency_list(mccarthy_fname)
+flist_itaranta <- create_frequency_list(itaranta_fname)
+flist_ma <- create_frequency_list(ma_fname)
+flist_mandel <- create_frequency_list(mandel_fname)
+flist_vandermeer <- create_frequency_list(vandermeer_fname)
+flist_galchen <- create_frequency_list(galchen_fname)
+flist_atwood <- create_frequency_list(atwood_fname)
+
+
+```
+
+### The Road
+
+*The Road* is a well-celebrated novel set in a post-apocalyptic world devastated by an unspecified disaster. The unknown catastrophic event leads to the collapse of human society and the destruction of the natural world. I will first take a look at the top most frequent words in this novel.
+
+```{r}
+#| label: tbl-mccarthy-flist
+#| tbl-cap: The Road Most Frequent Words
+
+display_flist_as_tibble(flist_mccarthy,10)
+
+```
+
+At first glance at @tbl-mccarthy-flist, in the top 20 most frequent words we can see words related to mobility: *road, cart, walked.* We also see words such as *cold, dark, fire, blankets,* and *gray*. These words express the climate conditions the main characters live in. Ranking 10th, *water* and the theme of water are present in the top 20 most frequent words. *Dead* is the 18th most frequent word in the book.
+
+From word frequencies, I then moved to look at association scores of select words that might be indicative of the Anthropocene. In *The Road*, I looked at the strength of association scores for the word *water* and its collocates.
+
+```{r}
+#| label: tbl-water-coocs
+#| tbl-cap: Words with the highest association scores with the word Water
+
+coocs_mccarthy_water <- create_surf_cooc(mccarthy_fname,"(?xi) ^water$")
+assoc_scores_mccarthy_water <- assoc_scores(coocs_mccarthy_water) 
+assoc_scores_mccarthy_water %>% arrange(desc(G_signed)) %>% as_tibble() %>% select(type, a, b, c, d, dir) %>% kbl() %>% kable_paper(font_size = 14)
+```
+
+*Water* scores 10th on the top frequencies list - it also has a lot of strong associations @tbl-water-coocs, and while they are mostly normal(drink, poured, glass) it could indicate a lack of water, as it is so prominently mentioned, and adjectives like heated, plastic, fresh, black, and gray could indicate there were issues with water scarcity or purity.
+
+Below is a plot visualizing the words with the highest association scores with the word *water* filtered by **signed** $G^2$ and measured against *PMI.* The size of the dots is indicative of frequency. We observe that the higher the *PMI* and **signed** $G^2$, the more they portray scarcity.
+
+```{r}
+#| label: fig-water-assocs
+#| fig-cap: Association Scores For the Word Water in McCarthy
+top_scores_df <- as_tibble(assoc_scores_mccarthy_water)
+theme_set(theme_minimal(base_size = 15))
+g <- top_scores_df %>% ggplot(aes(x=PMI, y = G_signed)) + labs(x="PMI", y=~G^2)
+high_G_signed <- top_scores_df %>% filter(G_signed > 4)
+g + geom_point(aes(size=a)) + ggrepel::geom_text_repel(data = high_G_signed, aes(label = type)) 
+```
+
+As seen in @fig-water-assocs, the words with the highest **signed** $G^2$ and **PMI** are *heated, drip, drink, poured, slow, fresh,* and *bottle. Heated* refers to the lack of hot water, lack of electricity, and infrastructure. *Drip* indicates slow stream of water or scarcity of water.
+
+#### Co-occurrences of *Road in* McCarthy
+
+```{r}
+#| label: tbl-road-coocs
+#| tbl-cap: Words with the highest association scores with the word Road
+
+coocs_mccarthy_road <- create_surf_cooc(mccarthy_fname,"(?xi) ^road$")
+assoc_scores_mccarthy_road <- assoc_scores(coocs_mccarthy_road) 
+assoc_scores_mccarthy_road %>% arrange(desc(G_signed))%>% as_tibble() %>% select(type, a, b, c, d, dir) %>% kbl() %>% kable_paper(font_size = 14)
+
+
+
+```
+
+```{r}
+#| label: fig-road-assocs
+#| fig-cap: Association Scores For the Word Road in McCarthy
+top_scores_df <- as_tibble(assoc_scores_mccarthy_road)
+theme_set(theme_minimal(base_size = 15))
+g <- top_scores_df %>% ggplot(aes(x=PMI, y = G_signed)) + labs(x="PMI", y="Signed G")
+high_G_signed <- top_scores_df %>% filter(G_signed > 4)
+g + geom_point(aes(size=a)) + ggrepel::geom_text_repel(data = high_G_signed, aes(label = type))
+
+```
+
+As seen in @tbl-road-coocs, *road* has more than normal amount of strong associations, as is thematic to the book. e.g. side, crossed, stopped, stood, ran, south, ate, tracks, country.
+
+I also looked at *Dead.* Following the analysis above, *Dead* has a strong attraction to words such as *trees, grass, limbs, black, wind,* and *fire.* These indicate the destruction of nature.
+
+```{r, results = FALSE}
+#| label: tbl-dead-coocs
+
+coocs_mccarthy_dead <- create_surf_cooc(mccarthy_fname,"(?xi) ^dead$")
+assoc_scores_mccarthy_dead <- assoc_scores(coocs_mccarthy_dead) 
+assoc_scores_mccarthy_dead %>% arrange(desc(G_signed))%>% as_tibble() %>% select(type, a,PMI,G_signed, exp_a, dir) %>% kbl() %>% kable_paper(font_size = 14)
+
+
+```
+
+### Severance
+
+The novel is set in the aftermath of a pandemic and explores the theme of how humanity's actions have led to ecological disaster and the end of human civilization. The novel also critiques consumer culture, which is portrayed as a driving force behind the collapse of society.
+
+```{r}
+#| label: tbl-ma-flist
+#| tbl-cap: Severance's Most Frequent Words
+display_flist_as_tibble(flist_ma,10)
+```
+
+In @tbl-ma-flist *Office (109), work(107), and city(73)* all hint at capitalism and the metropolitan nature of New York City, the place in which this novel is set. In severance, Capitalism and hyper-globalization of the world have led to the rapid spread of the pandemic and the consequent downfall of humanity.
+
+*Fever* occurs 59 times and *fevered* occurs 45 times both appearing in the top 50 most frequent words in Ma's book painting a very bleak image of the pandemic. I also observed that *city* (ranked 14th) has strong associations with 3 words: *live, leaving,* and *windows. Leaving* indicates migration from the city to safer pastures. *Windows* refer to the isolation during the pandemic. While *face* (ranked 16th has the most and strongest associations with *masks* with a **PMI** of 5.707 and **signed** $G^2$ of 31.133.
+
+```{r}
+#| label: tbl-face-coocs
+#| tbl-cap: Words with the highest association scores with the word Face
+coocs_ma_masks <- create_surf_cooc(ma_fname,"(?xi) ^face$")
+assoc_scores_ma_masks <- assoc_scores(coocs_ma_masks) 
+assoc_scores_ma_masks %>% arrange(desc(G_signed)) %>% as_tibble() %>% select(type, a,PMI,G_signed, exp_a, dir) %>% kbl() %>% kable_paper(font_size = 14)
+```
+
+Another way to gain a better understanding of how the most frequent words occur in the text, in other words, their context, is to look at concordances [(conc ())](https://masterclm.github.io/mclm/reference/conc.html). Using this function allows us to look for a specific pattern using a regular expression ([regex](https://regexr.com/)) and returns the concordance - which is the way this pattern or in our case, the most frequent word appears as well as the words that occur to the left and right.
+
+> In the language sciences, concordancing refers to the extraction of words from a given text or texts ([Lindquist 2009, 5](https://ladal.edu.au/kwics.html#ref-lindquist2009corpus)). Commonly, concordances are displayed in the form of keyword-in-context displays (KWICs) where the search term is shown in context, i.e. with preceding and following words. Concordancing are central to analyses of text and they often represent the first step in more sophisticated analyses of language data ([Stefanowitsch 2020](https://ladal.edu.au/kwics.html#ref-stafanowitsch2020corpus)).
+
+Next, I zoomed in on the word *mask* in *Severance,* which is in the top most frequent word occurring 20 times in the text. This word has also the highest number of associations with the word *face.* In @tbl-face-coocs, we see *mask* appears next to *respirator, N95, epidemic, fever, fevered,* and others.These associations all fall under the theme of pandemics
+
+```{r}
+#| tbl-cap: Concordance with the word mask
+ma_fname %>% conc("\\bmasks\\b") %>% arrange(left)%>% print()
+
+```
+
+### Memory of water
+
+The novel is set in a post-apocalyptic world where a pandemic has wiped out most of humanity. Droughts, wars, and water crimes are the result of humanity's attempts to control and manipulate nature through technology. Looking at Itaratna's top ten most frequently occurring words, we see the most frequent word by large margin occurring 131 in the text. *Plastic* is the fifth most occurring word in the novel. We also see *insect* and *past-world*.
+
+```{r}
+#| label: tbl-itaranta-flist
+#| tbl-cap: Memory of Water Most Frequent Words
+display_flist_as_tibble(flist_itaranta,10)
+```
+
+*Water* scarcity is one of the main topics in Itaranta's book as seen in @tbl-itaranta-flist . *Plastic* refers to the remnants of past society. While *insect* is part of a bi-gram *insect hood* which is a protective mask that people in *Memory of Water* wear to protect themselves from the insects that have taken over their landscape.
+
+```{r}
+#| label: tbl-plastic-assocs
+#| tbl-cap: Plastic assocs
+
+coocs_itaranta_water <- create_surf_cooc(itaranta_fname,"(?xi) ^plastic$")
+assoc_scores_itaranta_water <- assoc_scores(coocs_itaranta_water) 
+assoc_scores_itaranta_water %>% arrange(desc(G_signed))%>% as_tibble() %>% select(type, a,PMI,G_signed, exp_a, dir) %>% kbl() %>% kable_paper(font_size = 14)
+
+
+```
+
+The word *plastic* as seen in @tbl-plastic-assocs strong associations with *grave, junk,* and *metal*. This refers to the Anthropocene landscape that is covered with residues from the *past-world.*
+
+I looked at *past-world* which occurs 30 times in the text and computed its concordances. We see it appears next words such as *books, echoes, era, technology,* and *winters.* These indicate nostalgia for older times as well as the destruction of human progress and societal collapse.
+
+```{r}
+#| tbl-cap: Concordance with the word past-world
+
+itaranta_fname %>% conc("\\bpast-world\\b") %>% arrange(right) %>% print()
+```
+
+### Station Eleven
+
+The novel is set in the aftermath of a pandemic and explores the theme of how humanity's actions have led to ecological disaster and the end of human civilization. The novel also critiques consumer culture, which is portrayed as a driving force behind the collapse of society.
+
+```{r}
+#| label: tbl-mandel-flist
+#| tbl-cap: Station Eleven Most Frequent Words
+display_flist_as_tibble(flist_mandel,10)
+```
+
+*road and left* represent the theme of mobility; *water* represents water scarcity. *years, time, and remember* represent the nostalgia to pre-apocalypse times.
+
+The word *pandemic* is observed 16 times in *Station Eleven.* When looking at its concordances, we see it appearing next to words such as *virus* and *flu* which give us clues into the nature of the pandemic. We also see *has started, hit, reach, happened,* and *reach* which detail the spread of the disease in this novel.
+
+```{r}
+#| tbl-cap: Concordance with the word pandemic
+
+mandel_fname %>% conc("\\bpandemic\\b")%>% arrange(right) %>% print()
+```
+
+## Statistical Analysis
+
+After zooming in on each novel and examining how each novel addresses the impact of the Anthropocene in the previous section, the study zooms out and looks at the corpus as a whole. The following section covers the keyword analysis where I look at which words are attracted to the target corpus versus the reference target.
+
+### Keyword Analysis
+
+In the keyword analysis, the Anthrocorpus(target) is compared to the bestsellers(reference) corpus, and by comparing how often words occur in the target corpus vs in the reference corpus, it is calculated whether a word is occurring more frequently in the target corpus, than it is expected to occur. By looking at which words are significantly more attracted to each other in target versus reference, we gain a better understanding of the context and the keywords that are distinctive to each text.
+
+The strength of the results is further confirmed by the assoc_scores function, which is filtered by PMI which compares the observed frequency versus the expected frequency (*PMI* \>= 1.1), the Signed $G^2$ strength measures(*G_signed* \>= 4), as well as the frequencies (a \> 3). *PMI* compares the observed frequency to the expected frequency. A *PMI* higher than one means the collocation occurs 2 times more often than expected. While Signed $G^2$ is a likelihood ratio test statistic also called the G-test of goodness-of-fit.
+
+As previously discussed, combining different effect size measures and strength of evidence allows for a clearer view of how the Anthropocene words are used and offers a more solid grasp of the context whether it is the text of each novel or the Anthropocene corpusas a whole. By doing so, we are able to look at the strength of the effect size measures which adds to the level of certainty that there is indeed a difference between the target corpus and the reference corpus. Moreover, we get to zoom in on the Anthropocene-specific words and examine their themes.
+
+```{r}
+#| label: tbl-keyword
+#| tbl-cap: Top 20 Keywords of the Anthrocorpus filtered by frequency, PMI, and G-signed.
+# create an fname/flist target / reference, also drop stop list, names, and highly book specific words from frequency lists
+keyword_analysis_fnames_target <- anthro_fnames
+keyword_analysis_fnames_reference <- reference_fnames
+keyword_analysis_flist_target <- keyword_analysis_fnames_target %>% freqlist() %>% drop_types(stop_list2)
+keyword_analysis_flist_reference <- keyword_analysis_fnames_reference %>% freqlist() %>% drop_types(stop_list2)
+
+# assoc scores for the keywords analysis; Haldane is true by default, gives 0.5 to values instead of 0, so not to divide by zero. small_pos is a choose your own adventure type of thing.
+score_keywords <- assoc_scores(keyword_analysis_flist_target, keyword_analysis_flist_reference, haldane = FALSE, small_pos = 0.001)
+
+# create a list of scores, in which PMI >= 1.1 and G_signed >=4
+top_scores_keywords <- score_keywords %>% filter(a > 3 & PMI >= 1.1 & G_signed >= 4)
+
+# transform the top_scores_keywords into a tibble
+top_scored_keywords_filtered <- top_scores_keywords %>% as_tibble()
+
+# from the tibble, order by "a", select only type, top 100, as a tibble
+top_scored_keywords_filtered %>% arrange(desc(a)) %>% select(type, a, PMI, G_signed) %>% head(20) %>% kbl() %>% kable_paper(font_size = 14)
+```
+
+The keyword analysis returns 1150 types or unique words in the list. An exploration shows that words such as *tarp, flu, fevered, carts, emigrant, masks, spores, past-world, sample expeditions, caravans, trailer, virus, and can* - stand out. In the table below, we looked at the top 100 most frequent words in the Anthrocorpus and then we categorized them according to their relevant themes. This shows that those are some of the words somewhat typical to books written about the Anthropocene/Cli-Fi.
+
+| Anthropocene Theme     | Word                                                                                                                       |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Religion               | Prophet, baptists, bibles, paradice, ark, congregation, devotees                                                           |
+| pandemics              | flu, fevered, crawler, pesthouse, masks, spores, virus, corpse, fungal, pandemic, quarantine, vaccine, parasites, microbes |
+| movement and migration | emigrants, caravans, ferry, trailer, carts, camper, carriage, migrants                                                     |
+| nostalgia              | past-world, iPhone, mall, walmart, googled, facility, compound, photo,                                                     |
+| food scarcity          | canned                                                                                                                     |
+| water crisis           | tidewater, water, waterskin                                                                                                |
+
+: Words of the Anthropocene categorized by themes
+
+## Interpretation
+
+The various analyses of word frequencies, collocates, and keywords carried on in this study returned interesting results about the prevalent themes and contextual nuances of the Cli-Fi novels.
+
+Through a thorough exploration of the word frequencies, we saw certain terms recur frequently within the corpus, reflecting key concerns of the Anthropocene genre. In McCarthy's book, words like *road, water,* and *dead* dominate the most frequent word list, indicating a focus on mobility, resource scarcity, and post-apocalyptic uninhabitable landscape. In Ling Ma's *Severance,* we get to see themes of consumer culture contrasted with societal collapse through words such as *office, work,* and *city.* We encountered pandemic-related terms in both *Severance* and *Station Eleven* such as *fevered, masks, contagious, etc.*
+
+Furthermore, the analysis of collocations provides a deeper understanding of how specific words are semantically linked within the context of each novel. For instance, in *The Road,* the collocations of the word *water* reveal associations with words like *heated, drip,* and *drink,* suggesting the struggle for water access in a desolate landscape. Similarly, the collocations of *dead* in the same novel show connections with terms like *trees, grass,* and *fire*, depicting vivid imagery of environmental devastation and loss. Such collocation patterns expose the thematic richness and narrative intricacies that amplify the Anthropocene discourse in Cli-Fi literature.
+
+In the keyword analysis, a comparative study between the Anthropocene target corpus and the reference corpus of bestsellers provides quantitative evidence of distinctive words and themes in the former. The presence of words like *flu, fevered, masks, and pandemic* underscores the emphasis on pandemics and health crises, which resonate with the contemporary climate of global concerns. Additionally, terms such as *emigrants, caravans, and trailer* point towards the recurring motif of movement and migration, reflecting the displacement and mobility resulting from climate-induced challenges. This keyword analysis reaffirms the thematic trends observed in the word frequencies and collocation analyses, highlighting the presence of recurring concerns in Anthropocene literature, from resource scarcity to ecological deterioration and societal upheaval.
+
+In conclusion, the use of word frequencies, collocation patterns, and keyword associations in this study provides a comprehensive lens through which the themes of the Anthropocene are examined. These analyses collectively illustrate the multidimensional nature of Anthropocene literature, enabling a nuanced exploration of the complex interplay between humanity, the environment, and the consequences of our actions. Through the examination of textual patterns, this study highlights the narrative strategies employed by authors to engage readers in critical conversations surrounding climate change, resource exploitation, and the fragile balance between human civilization and the natural world.
+
+Reflecting on the results of this study, we can see that all seven novels carried the Anthropocene themes in their lines. The themes of migration/displacement, food and water scarcity, and post-apocalyptic landscape are strongly present in each of the novels.
+
+Moreover, when looking at the concordances of Anthropocene-specific terms, we were able to see in juxtaposition the state of the earth before and after human intervention has destroyed the planet rendering it unlivable.
+
+## Limitations
+
+Though the size of both target and reference corpora is limited, the different analyses conducted and the combination of the effect size and strength of evidence association measures resulted in a list of Anthropocene words thus answering our research question. The corpus, while carefully selected, contains only seven novels, which may limit the generalization of the findings. Therefore, it would be curious to inspect a corpus with a larger scope, sample size and composition.
+
+Aside from the size of the data, another limitation would be the removal of certain words, names, or hyper-specific details from the text that could potentially have affected the context and meaning of the analyzed passages. Decisions about what to exclude and what to include could have introduced unintended biases.
+
+Additionally, while the study used a combination of statistical and effect size measures, it could benefit from advanced statistical analysis such as linear regression or correspondence analysis. These methods could provide stronger evidence and a wider understanding of the Anthropocene corpus.
+
+In summary, this study provided valuable insights into the themes and linguistic features of the Anthropocene literature. However, the limitations listed above should be acknowledged to ensure a comprehensive and loyal interpretation of the study's findings.
+
+# **Conclusions**
+
+The Anthropocene Novel has been the topic of literary focus in recent years due to the growing number of fiction that imagines the end of the world as propelled by humankind. This genre presents a valuable opportunity for understanding how literature deals with climate change and the different environmental issues that humanity is facing.
+
+> When the novel incorporates things implicated in climate change---climate models, glaciers, cars, future hopes, weather---it becomes impossible to read without the preoccupation of climate change. [...]These sites are integral to the meaning-making of a novel, and each of them is being radically reordered as we locate ourselves in the Anthropocene. [...] As still more novels incorporate the weather, technology, and ideas of the Anthropocene, features of these early climate change novels will be diffused into literature at large. @Trexler_2015 [16]
+
+Therefore, the main task of science fiction is not to prophesize and predict the future, but rather explore the different ways the future may unfold**,** penetrate our collective conscience, and guide humanity to change its ways. By mining the text for keywords and looking at their larger context, examining their occurrences and co-occurrences within a given text, and then comparing the Anthrocorpus to a randomized literary corpus, this study in its two parts allowed us to gain a better understanding of the overarching themes of the Anthropocene at first glance.
+
+The first part introduced the research question along with background information and the themes of the Anthropocene. I then move on to talk about the methodology followed in the analysis as well as the corpus composition. In the second part of the paper, we get a deeper look into the Anthropocene literature by first zooming in on the individual target corpus novels and their word frequencies. On top of that, I zoomed in closer into select words from the most frequent lists and looked at their concordances to gain a better understanding of how those words occur in the texts. Furthermore, I zoomed out to look at the Anthropocene as a whole and analyze it in comparison to a target corpus by running a keyword analysis that allowed us to extract Anthropocene-specific terms.
+
+Trexler insists that "the imaginative capacities of the novel have made it a vital site for the articulation of the Anthropocene." We can add to that the linguistic nature and power of words and how they are used in the Anthropocene novel also play an essential role in shaping our collective consciousness and ultimately affect our actions and perspectives. Astronomer Carl Sagan believes in the power that science fiction holds through which it allows humanity to explore "alternative futures, both experimental and conceptual". To Sagan, "the greatest human significance of science fiction may be as thought experiments, as attempts to minimize future shock, as contemplations of alternative destinies." In fact, it has been argued that the human ability to imagine, is necessary so that the imagined "person" dies, instead of the real one.
+
+After careful examination of the recurrent themes of the Anthropocene through a thorough analysis of the different keywords and concordances that occur in the text, this paper was able to identify the words of Anthropocentric nature. The novels analyzed in this study portrayed the devastating effects of human activity on the planet and the consequent environmental disasters and paint a very vivid and eerily close image of the realities of the climate crises. Thus, the contemporary writer is considered innocent of Amitav Ghosh's accusation of climate deafness.
+
+`r if (!knitr::is_html_output()) "# References {.unnumbered}"`

@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.34">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Hana El Mourad">
+
+<title>A Statistical Look into the Occurences of the Anthropocene in Cli-Fi</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="Anthropocene Literature_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Anthropocene Literature_files/libs/quarto-html/quarto.js"></script>
+<script src="Anthropocene Literature_files/libs/quarto-html/popper.min.js"></script>
+<script src="Anthropocene Literature_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Anthropocene Literature_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Anthropocene Literature_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Anthropocene Literature_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Anthropocene Literature_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Anthropocene Literature_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Anthropocene Literature_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+<script src="Anthropocene Literature_files/libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="Anthropocene Literature_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#part-i-introduction" id="toc-part-i-introduction" class="nav-link active" data-scroll-target="#part-i-introduction"><span class="toc-section-number">1</span>  Part I: Introduction</a>
+  <ul class="collapse">
+  <li><a href="#study-background" id="toc-study-background" class="nav-link" data-scroll-target="#study-background"><span class="toc-section-number">1.1</span>  Study Background</a></li>
+  <li><a href="#climate-fiction-themes" id="toc-climate-fiction-themes" class="nav-link" data-scroll-target="#climate-fiction-themes"><span class="toc-section-number">1.2</span>  Climate Fiction Themes</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="toc-section-number">1.3</span>  Methodology</a>
+  <ul class="collapse">
+  <li><a href="#data-collection-and-pre-processing" id="toc-data-collection-and-pre-processing" class="nav-link" data-scroll-target="#data-collection-and-pre-processing"><span class="toc-section-number">1.3.1</span>  Data Collection and Pre-processing</a></li>
+  <li><a href="#project-script" id="toc-project-script" class="nav-link" data-scroll-target="#project-script"><span class="toc-section-number">1.3.2</span>  Project Script</a></li>
+  <li><a href="#techniques" id="toc-techniques" class="nav-link" data-scroll-target="#techniques"><span class="toc-section-number">1.3.3</span>  Techniques</a></li>
+  </ul></li>
+  <li><a href="#corpus-composition" id="toc-corpus-composition" class="nav-link" data-scroll-target="#corpus-composition"><span class="toc-section-number">1.4</span>  Corpus Composition</a>
+  <ul class="collapse">
+  <li><a href="#anthrocorpus-the-target-corpus" id="toc-anthrocorpus-the-target-corpus" class="nav-link" data-scroll-target="#anthrocorpus-the-target-corpus"><span class="toc-section-number">1.4.1</span>  Anthrocorpus: The Target Corpus</a></li>
+  <li><a href="#bestsellers-the-reference-corpus" id="toc-bestsellers-the-reference-corpus" class="nav-link" data-scroll-target="#bestsellers-the-reference-corpus"><span class="toc-section-number">1.4.2</span>  Bestsellers: The Reference Corpus</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#part-ii-a-deep-look-into-the-anthropocene" id="toc-part-ii-a-deep-look-into-the-anthropocene" class="nav-link" data-scroll-target="#part-ii-a-deep-look-into-the-anthropocene"><span class="toc-section-number">2</span>  Part II: A Deep Look Into the Anthropocene</a>
+  <ul class="collapse">
+  <li><a href="#themes-by-novel" id="toc-themes-by-novel" class="nav-link" data-scroll-target="#themes-by-novel"><span class="toc-section-number">2.1</span>  Themes by Novel</a>
+  <ul class="collapse">
+  <li><a href="#the-road" id="toc-the-road" class="nav-link" data-scroll-target="#the-road"><span class="toc-section-number">2.1.1</span>  The Road</a></li>
+  <li><a href="#severance" id="toc-severance" class="nav-link" data-scroll-target="#severance"><span class="toc-section-number">2.1.2</span>  Severance</a></li>
+  <li><a href="#memory-of-water" id="toc-memory-of-water" class="nav-link" data-scroll-target="#memory-of-water"><span class="toc-section-number">2.1.3</span>  Memory of water</a></li>
+  <li><a href="#station-eleven" id="toc-station-eleven" class="nav-link" data-scroll-target="#station-eleven"><span class="toc-section-number">2.1.4</span>  Station Eleven</a></li>
+  </ul></li>
+  <li><a href="#statistical-analysis" id="toc-statistical-analysis" class="nav-link" data-scroll-target="#statistical-analysis"><span class="toc-section-number">2.2</span>  Statistical Analysis</a>
+  <ul class="collapse">
+  <li><a href="#keyword-analysis" id="toc-keyword-analysis" class="nav-link" data-scroll-target="#keyword-analysis"><span class="toc-section-number">2.2.1</span>  Keyword Analysis</a></li>
+  </ul></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation"><span class="toc-section-number">2.3</span>  Interpretation</a></li>
+  <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations"><span class="toc-section-number">2.4</span>  Limitations</a></li>
+  </ul></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="toc-section-number">3</span>  <strong>Conclusions</strong></a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Anthropocene Literature.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">A Statistical Look into the Occurences of the Anthropocene in Cli-Fi</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Hana El Mourad </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    This paper explores seven Cli-Fi novels by examining the statistics of the Anthropocene keywords and collocations using R and the mclm package
+  </div>
+</div>
+
+</header>
+
+<section id="part-i-introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Part I: Introduction</h1>
+<section id="study-background" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="study-background"><span class="header-section-number">1.1</span> Study Background</h2>
+<p>Literary works have long been considered a witness to the time they were conceived. Works of fiction depict social phenomena and capture a portrait of humanity’s struggles. With that, every year, decade, and century brings new themes. From Greek Mythology and Roman Epics to Modernist and contemporary literature passing through Romanticism, Realism, and Naturalism, novels contain clues and signs of each age and reflect the obsessions and fears of each respective generation.</p>
+<blockquote class="blockquote">
+<p>From 2000, a group of geologists, led by the Nobel Prize winner Paul Crutzen, began to argue the present period of Earth’s history should be known as the Anthropocene. […] According to proponents of the term Anthropocene, human activity has so altered the history of the Earth that it has become necessary to declare a new epoch to signify this impact. <span class="citation" data-cites="Trexler_2015">Trexler (<a href="#ref-Trexler_2015" role="doc-biblioref">2015: 1</a>)</span></p>
+</blockquote>
+<p>After the Second World War, a new geological era started, and with it, a new time of literature emerged: the literature of the Anthropocene or Post-1945 Fiction. These works of fiction carried in their pages reflections of the current state of planet Earth. Their scenarios often revolve around the end of the world due to human interference. This specific genre has been named Cli-Fi or Climate Fiction, a sub-genre of science fiction that delves into the intricacies of the climate crisis.</p>
+<p>One of the main and most controversial books written on the topic of Anthropocene fiction is written by Amitav Ghosh, an Indian novelist, and literary critic<strong>.</strong> In his book, <em>The Great Derangement: Climate Change and the Unthinkable</em>, Ghosh accuses the modern novel writer of climate silence on one hand, and fetishizing climate disasters and setting them in such exaggerated forms that people do not take the events that occur in those novels seriously on the other hand. He says “There are surely very few writers today who are oblivious to the current disturbances in climate systems the world over. Yet, it is a striking fact that when novelists do choose to write about climate change it is almost always outside of fiction.” <span class="citation" data-cites="ghosh_2017">Ghosh (<a href="#ref-ghosh_2017" role="doc-biblioref">2017: 8</a>)</span></p>
+<p>Other literary critics believe that the novel represents the perfect vehicle to warn people about possible futures if our human actions do not change. Such critics include Adam Trexler who published a book titled <em>Anthropocene Fictions: The Novel in a Time of Climate Change</em> in which he insists that “Climate novels have a role to play in our collective accounting of the Anthropocene, even those that were written in the hope that such a day would never come to pass.” <span class="citation" data-cites="Trexler_2015">Trexler (<a href="#ref-Trexler_2015" role="doc-biblioref">2015: 237</a>)</span></p>
+<blockquote class="blockquote">
+<p>The corpus of climate change fiction represents an enormous and growing archive. There cannot be a single history of these works, based on a corresponding history of climate science or climate politics, because the novels in question have continually reconfigured what it means to live in the Anthropocene, to be part of a self-conscious species that is actively transforming conditions that have reigned throughout its evolutionary history. <span class="citation" data-cites="Trexler_2015">Trexler (<a href="#ref-Trexler_2015" role="doc-biblioref">2015: 27</a>)</span></p>
+</blockquote>
+<p>In my Master thesis that I have written for my Master of Western Literature titled <em>In Defense of Science Fiction: Can Sci-Fi Novels Save the World</em>, I argued that Cli-Fi is an extremely powerful tool that can appeal to readers from every age and demography. Amitav Ghosh laments the current state of fiction and the silence surrounding the topic of “climate change” which he believes has resisted till this day the pages of serious fiction. While Ghosh laments the absence of climate change in serious fiction due to an “imaginative and cultural failure”<span class="citation" data-cites="ghosh_2017">Ghosh (<a href="#ref-ghosh_2017" role="doc-biblioref">2017</a>)</span>. In my thesis, I challenged Ghosh’s views by putting 2 Sci-Fi novels under the spotlight and analyzing how each novel depicts the end of the world scenarios and how that makes them innocent of Ghosh’s accusations of Climate deafness.</p>
+<div class="cell">
+
+</div>
+<p>Expanding on this foundation, this paper will encompass the evaluation of an ‘Anthropocene’ corpus containing the two previously analyzed novels in addition to five works of fiction chosen for being emblematic of the Anthropocene. It has 490708 tokens and 25285 types, giving us a type-token ratio of 0.05. My goal through this research is to investigate this theory by using the language R to conduct an exploratory analysis and a keyword analysis and examine the words used in the Anthropocene literature. Therefore, the aim of this study is twofold:1- examining how each novel depicts the Anthropocene, and 2- Identifying recurring themes shared among the novels, shedding light on the prevailing concerns of Cli-Fi writers.</p>
+<p>This paper is divided into two parts: Part I of this paper contains information about the study background, literature review, and the general Anthropocene themes. I then move to discuss the Methodology as well as corpus description where information about both target and reference corpora is presented. Part II contains a statistical exploration of individual novels from the Anthropocene corpus by looking at collocations while using different association measures to assess their strength. From there, a keyword analysis is conducted where the Anthrocorpus (target corpus) is examined against a Bestsellers corpus (reference corpus) comprising eight random Bestsellers. Finally, an interpretation of the results is presented, and concluding remarks are made.</p>
+<p>By taking several different novels written by different authors, with different backgrounds, styles, and plots, and examining their overarching themes, this paper strives to uncover the main preoccupation of Cli-fi writers. It is therefore my hope to prove that fiction writers are continuously inviting us to rethink our relationship with nature and the planet we dwell on through their texts, subtext, and context.</p>
+</section>
+<section id="climate-fiction-themes" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="climate-fiction-themes"><span class="header-section-number">1.2</span> Climate Fiction Themes</h2>
+<p>The Anthropocene novels commonly explore themes of environmental devastation, resource scarcity, mobility/migration, and societal collapse as a result of climate change. They often depict a future world in which the effects of climate change have become catastrophic and irreversible, leading to the collapse of human civilization and the destruction of the natural world.</p>
+<p>One of the main themes in Cli-Fi is the idea of <em>environmental devastation</em>, which is often depicted through the portrayal of extreme weather events, sea-level rise, pandemics and other effects of climate change. Disaster narratives paint different worlds where we can see the potential consequences of human actions and technology on the environment.</p>
+<p>Another common theme is <em>resource scarcity</em>, which is often depicted through the portrayal of food and water shortages, energy crises, and other effects of climate change. These scenarios show how climate change will affect the availability of resources and how this will impact human society.</p>
+<p>The Anthropocene novel also frequently addresses issues of forced <em>migration and displacement.</em> Environmental disasters, rising sea levels, and the degradation of land can lead to the displacement of individuals and communities, which becomes a central theme in these novels.</p>
+<p><em>Societal collapse</em> represents another of the main themes of the Anthropocene novel, which is often depicted through the portrayal of war, anarchy, and other effects of climate change. This theme usually revolves around human societies in the face of extreme climate crises and involves stories about the collapse of civilization as we know it.</p>
+</section>
+<section id="methodology" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="methodology"><span class="header-section-number">1.3</span> Methodology</h2>
+<section id="data-collection-and-pre-processing" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="data-collection-and-pre-processing"><span class="header-section-number">1.3.1</span> Data Collection and Pre-processing</h3>
+<p>The corpus was collected by converting ePub files into simple text (.txt) files. A clean-up of both corpora’s text files was conducted whereby extra elements such as the preface, author’s note, and acknowledgments were removed to provide better results. A stop list was also created and used to remove the most common connection words in the English Language. Moreover, the names of the main characters of each novel were removed, as well as unique, hyper-specific, details of the books (e.g.&nbsp;city/country names, organization names).</p>
+</section>
+<section id="project-script" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="project-script"><span class="header-section-number">1.3.2</span> Project Script</h3>
+<p>The script mentioned in this paper was written in R. R is a programming language that is particularly helpful when it comes to examining large corpora or datasets. Its power and popularity among data scientists and linguists lie in its rich implementation as well as the availability of libraries. Using R <span class="citation" data-cites="R-base">(<a href="#ref-R-base" role="doc-biblioref">R Core Team 2022</a>)</span> for statistical analysis with support from four packages {tidyverse} for data manipulation and visualization <span class="citation" data-cites="tidyverse2019">(<a href="#ref-tidyverse2019" role="doc-biblioref">Wickham et al. 2019</a>)</span>, {here} <span class="citation" data-cites="R-here">(<a href="#ref-R-here" role="doc-biblioref">Müller 2020</a>)</span> for easy file referencing, and finally {kableExtra} <span class="citation" data-cites="Zhu_2021">(<a href="#ref-Zhu_2021" role="doc-biblioref">Zhu 2021</a>)</span>for table manipulation, different computations and visualizations were achieved.</p>
+<p>The `{mclm}` package <code>{mclm}</code> is developed as a “companion to the Methods in Corpus Linguistics course at the Advanced Master in Linguistics (KU Leuven)” <span class="citation" data-cites="R-mclm">(<a href="#ref-R-mclm" role="doc-biblioref">Speelman &amp; Montes 2022</a>)</span>. It allows users to conduct various analyses and apply different techniques in the field of corpus linguistics. In this study, <code>{mclm}</code> was used to run different computations and statistical operations in order to examine how contemporary authors depict the end of the world and its causes.</p>
+<p>The project was uploaded to GitHub. It includes several folders and files including a ReadMe file that describes the contents of the GitHub repository as well as the script in one R document, a stop-list, a quarto document, and other files such as a style sheet.</p>
+</section>
+<section id="techniques" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="techniques"><span class="header-section-number">1.3.3</span> Techniques</h3>
+<p>This paper makes use of two main techniques used in corpus linguistics: collocations and keyword analysis. In order to use either techniques word frequencies must be calculated. Word frequencies are a very direct way of quickly assessing a text and its themes. It is also a very powerful tool when used alongside different data association measures. In the <code>{mclm}</code> package, word frequency is represented by <em>freqlist</em> which is a function that builds the word frequency list from a corpus.</p>
+<blockquote class="blockquote">
+<p>A central question in text mining and natural language processing is how to quantify what a document is about. Can we do this by looking at the words that make up the document? One measure of how important a word may be is its term frequency (tf). <span class="citation" data-cites="Silge_2017">Silge &amp; Robinson (<a href="#ref-Silge_2017" role="doc-biblioref">2017: 31</a>)</span></p>
+</blockquote>
+<p>According to Stefan Evert, <span class="citation" data-cites="Evert_2007">Evert (<a href="#ref-Evert_2007" role="doc-biblioref">2009: 4</a>)</span> Chair of Computational Corpus Linguistics in Osnabrück, Germany, “we define a collocation as a combination of two words that exhibit a tendency to occur near each other in natural language,” By looking at the collocations of these words or which words occur most frequently next to them, we get a better understanding of the context those words occur in.</p>
+<p>A keyword analysis is a text or group of text compared to a reference corpus. While a collocation analysis focuses on certain words and sees which words are attracted to the context of that word. These methods are among the oldest and most used in the field of linguistics and have been practiced long before computers. Their popularity is attributed to their systematic and efficient way of uncovering patterns, themes, and linguistic features within large bodies of text. Moreover, they help reveal intricate relationships between words and how frequently they appear together in a text corpus.</p>
+<blockquote class="blockquote">
+<p>For keyword analysis, the target context is a target (sub)corpus and the reference context is a reference (sub)corpus. For collocation analysis based on surface co-occurrences, the target context is the text surrounding the occurrences of the node term and the reference context is all the other text in the corpus. <span class="citation" data-cites="R-mclm">Speelman &amp; Montes (<a href="#ref-R-mclm" role="doc-biblioref">2022</a>)</span></p>
+</blockquote>
+<p>Association measures are how we describe the strength of attraction between two words or a word and a text. They are used in both techniques implemented in this paper. When we compare how often words occur together versus how often they do not, we can gain a better understanding of the context in which these words occur and extract insights about the text itself. There are two main categories of association measures: effect size measures and strength of evidence measures. To get results that are loyal to the size of the sample I was analyzing, it is important to use a combination of both. Effect size measures are measures that look at the size of the effect and how strong the attraction is but do not consider the sample size. That is why it is important to combine them with statistical measures that are going to be more loyal to the size of the data. The strength of evidence measures are statistical measures that look at how much difference there actually is between the observed and expected value. If you have a strong effect, you do not need a lot of data. Conversely, if you have a lot of data, you don’t need as strong of an effect<strong>.</strong></p>
+<p>The first step taken in the analysis was to zoom in on each individual novel of the Anthropocene corpus by looking at the most frequent words by utilizing the <em>freqlist</em> function. The next step was to look closely at those words and examine their larger context by looking at their collocations to gain a better understanding of how they occur in the texts.</p>
+<p>From there on, a keyword analysis was performed to extract the “words of the Anthropocene”. To this end, this project also makes use of a second corpus used as a reference corpus to be able to run a keyword analysis and extract Anthropocene-centered words and themes. This is done by selecting the words that are “attracted” to a specific corpus in comparison to a reference corpus by looking at association scores (assoc_scores()).</p>
+<p>For both collocations and keywords analyses, the output of assoc_scores() was evaluated following three criteria:</p>
+<ul>
+<li><p>A <strong>frequency</strong> of 3 or higher in the target context:</p></li>
+<li><p>A <strong>PMI score</strong> of 1.1 or higher.</p></li>
+<li><p>A <strong>signed</strong> <span class="math inline">\(G^2\)</span> score of 4 or higher.</p></li>
+</ul>
+<p>Thresholds were indicated for all three association measures to eliminate low-frequency words and flow attraction words.</p>
+</section>
+</section>
+<section id="corpus-composition" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="corpus-composition"><span class="header-section-number">1.4</span> Corpus Composition</h2>
+<section id="anthrocorpus-the-target-corpus" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="anthrocorpus-the-target-corpus"><span class="header-section-number">1.4.1</span> Anthrocorpus: The Target Corpus</h3>
+<p>The Anthropocene Corpus (Anthrocorpus) is a collection of seven <strong>Cli-Fi</strong> novels that address the theme of the Anthropocene, a geological era marked by the significant impact of human activity on the Earth’s ecosystems. It has 490708 tokens and 25285 types, giving us a type-token ratio of 0.05.The corpus includes the following novels:</p>
+<p>1- <em>Annihilation</em> by American Author Jeff Vandermeer - published in 2014</p>
+<p>2- <em>Memory of Water</em> by Finnish Novelist Emily Itaranta - published in 2012</p>
+<p>3- <em>Oryx and Crake</em> by Canadian Novelist Margaret Atwood - published in 2003</p>
+<p>4- <em>Severance</em> by Chinese American Novelist Ling Ma - published in 2018</p>
+<p>5- <em>Station Eleven</em> by Canadian Emily St.&nbsp;John Mandel - published in 2014</p>
+<p>6- <em>The Road</em> by American Writer Cormac McCarthy - published in 2006</p>
+<p>7- <em>Atmospheric Disturbances</em> by Canadian Israeli Writer Rivka Galchen- Published in 2008</p>
+<p>These novels were selected for their relevance to the theme of the Anthropocene and the way they depict the relationship between humans and the environment. The corpus period spans from 2003 to 2018. This corpus, though compact, carries enough variety and weight to provide a unique opportunity to examine the preoccupation of modern writers with the end of the world.</p>
+</section>
+<section id="bestsellers-the-reference-corpus" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="bestsellers-the-reference-corpus"><span class="header-section-number">1.4.2</span> Bestsellers: The Reference Corpus</h3>
+<p>The reference corpus used for keyword analysis was assembled by randomly selecting 8 best-selling fiction and non-fiction books. 13 books were initially selected, then 5 books were removed due to their relevance to the Anthropocene.</p>
+<ol type="1">
+<li><p><em>Absalom’s Daughters</em> by Suzanne Feldman - published in 2016, Historical Fiction</p></li>
+<li><p><em>It Ends With Us</em> by Colleen Hoover - published in 2016, Contemporary Romance</p></li>
+<li><p><em>The Bulgari Connection</em> by Fay Weldon - published in 2000, Literary Fiction</p></li>
+<li><p><em>The Silver Sun</em> by Nancy Springer - published in 1977, Sci-Fi/Fantasy</p></li>
+<li><p><em>The Three-Body Problem</em> by Cixin Liu(writer) Ken Liu(Translator) - published in 2006, Speculative fiction</p></li>
+<li><p><em>Triple</em> by Ken Follett - published in 1979, Thriller</p></li>
+<li><p><em>Trust</em> by Hernan Diaz - published in 2022, Historical Fiction</p></li>
+<li><p><em>Yumi and the Nightmare Painter</em> by Brandon Sanderson - published in 2023, Epic Fantasy</p></li>
+</ol>
+<p>This was to allow for a later keyword analysis which would underline the words that are more unique to the Anthropocene Corpus.</p>
+</section>
+</section>
+</section>
+<section id="part-ii-a-deep-look-into-the-anthropocene" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Part II: A Deep Look Into the Anthropocene</h1>
+<section id="themes-by-novel" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="themes-by-novel"><span class="header-section-number">2.1</span> Themes by Novel</h2>
+<p>In the following section, for the purpose of brevity in this paper, I will examine closely four of the seven novels and how each of those novels imagines the end of the world and how the themes of the Anthropocene manifest in those novels. As mentioned above, those themes include environmental devastation, resource scarcity, mobility/migration, and societal collapse. In order to mine the texts for those themes, I will resort to different methods and techniques used in text mining.</p>
+<p>In the following sections, I will zoom in on each novel and examine closely the most frequent words, their collocations, and their association scores filtered by different strength measures.</p>
+<p>Thus, word frequencies for 4 books from the Anthropocene corpus were computed. This allows us to explore immediately yet superficially words that tie our target corpus to the themes of the Anthropocene. However, only looking at how frequently a word occurs in a text is not fully indicative of the nature of the text. Context is also very important to look at, as well as statistical likelihoods. So, the next step was to select several words chosen out of the top 50 most frequent words that could be relevant to the Anthropocene and its themes. I then looked at their collocation frequencies and their strengths of association, or which words appear more than others alongside the most frequent words.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+
+</div>
+<section id="the-road" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="the-road"><span class="header-section-number">2.1.1</span> The Road</h3>
+<p><em>The Road</em> is a well-celebrated novel set in a post-apocalyptic world devastated by an unspecified disaster. The unknown catastrophic event leads to the collapse of human society and the destruction of the natural world. I will first take a look at the top most frequent words in this novel.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-mccarthy-flist" class="anchored">
+
+<table class=" lightable-paper" style="font-size: 14px; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;1:  The Road Most Frequent Words </caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> rank </th>
+   <th style="text-align:left;"> type </th>
+   <th style="text-align:right;"> abs_freq </th>
+   <th style="text-align:right;"> nrm_freq </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> road </td>
+   <td style="text-align:right;"> 256 </td>
+   <td style="text-align:right;"> 43.59896 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> looked </td>
+   <td style="text-align:right;"> 229 </td>
+   <td style="text-align:right;"> 39.00063 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> stood </td>
+   <td style="text-align:right;"> 201 </td>
+   <td style="text-align:right;"> 34.23199 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> sat </td>
+   <td style="text-align:right;"> 180 </td>
+   <td style="text-align:right;"> 30.65552 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> fire </td>
+   <td style="text-align:right;"> 132 </td>
+   <td style="text-align:right;"> 22.48071 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> cart </td>
+   <td style="text-align:right;"> 125 </td>
+   <td style="text-align:right;"> 21.28855 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> long </td>
+   <td style="text-align:right;"> 124 </td>
+   <td style="text-align:right;"> 21.11825 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> water </td>
+   <td style="text-align:right;"> 109 </td>
+   <td style="text-align:right;"> 18.56362 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> hand </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:right;"> 18.39331 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> put </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 18.22300 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>At first glance at <a href="#tbl-mccarthy-flist">Table&nbsp;1</a>, in the top 20 most frequent words we can see words related to mobility: <em>road, cart, walked.</em> We also see words such as <em>cold, dark, fire, blankets,</em> and <em>gray</em>. These words express the climate conditions the main characters live in. Ranking 10th, <em>water</em> and the theme of water are present in the top 20 most frequent words. <em>Dead</em> is the 18th most frequent word in the book.</p>
+<p>From word frequencies, I then moved to look at association scores of select words that might be indicative of the Anthropocene. In <em>The Road</em>, I looked at the strength of association scores for the word <em>water</em> and its collocates.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-water-coocs" class="anchored">
+
+<table class=" lightable-paper" style="font-size: 14px; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;2:  Words with the highest association scores with the word Water </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> type </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> b </th>
+   <th style="text-align:right;"> c </th>
+   <th style="text-align:right;"> d </th>
+   <th style="text-align:right;"> dir </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> heated </td>
+   <td style="text-align:right;"> 4.5 </td>
+   <td style="text-align:right;"> 650.5 </td>
+   <td style="text-align:right;"> 0.5 </td>
+   <td style="text-align:right;"> 57954.5 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> drink </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 648.0 </td>
+   <td style="text-align:right;"> 13.0 </td>
+   <td style="text-align:right;"> 57941.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> drip </td>
+   <td style="text-align:right;"> 3.5 </td>
+   <td style="text-align:right;"> 651.5 </td>
+   <td style="text-align:right;"> 0.5 </td>
+   <td style="text-align:right;"> 57954.5 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> poured </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 649.0 </td>
+   <td style="text-align:right;"> 15.0 </td>
+   <td style="text-align:right;"> 57939.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> bottle </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 649.0 </td>
+   <td style="text-align:right;"> 20.0 </td>
+   <td style="text-align:right;"> 57934.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> slow </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 650.0 </td>
+   <td style="text-align:right;"> 12.0 </td>
+   <td style="text-align:right;"> 57942.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> fresh </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 651.0 </td>
+   <td style="text-align:right;"> 6.0 </td>
+   <td style="text-align:right;"> 57948.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> glass </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 650.0 </td>
+   <td style="text-align:right;"> 20.0 </td>
+   <td style="text-align:right;"> 57934.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> plastic </td>
+   <td style="text-align:right;"> 5.0 </td>
+   <td style="text-align:right;"> 649.0 </td>
+   <td style="text-align:right;"> 58.0 </td>
+   <td style="text-align:right;"> 57896.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> jars </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 651.0 </td>
+   <td style="text-align:right;"> 15.0 </td>
+   <td style="text-align:right;"> 57939.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> roadside </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 651.0 </td>
+   <td style="text-align:right;"> 19.0 </td>
+   <td style="text-align:right;"> 57935.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> watched </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 651.0 </td>
+   <td style="text-align:right;"> 56.0 </td>
+   <td style="text-align:right;"> 57898.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> good </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 651.0 </td>
+   <td style="text-align:right;"> 64.0 </td>
+   <td style="text-align:right;"> 57890.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> black </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 651.0 </td>
+   <td style="text-align:right;"> 65.0 </td>
+   <td style="text-align:right;"> 57889.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> gray </td>
+   <td style="text-align:right;"> 3.0 </td>
+   <td style="text-align:right;"> 651.0 </td>
+   <td style="text-align:right;"> 78.0 </td>
+   <td style="text-align:right;"> 57876.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sat </td>
+   <td style="text-align:right;"> 4.0 </td>
+   <td style="text-align:right;"> 650.0 </td>
+   <td style="text-align:right;"> 176.0 </td>
+   <td style="text-align:right;"> 57778.0 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><em>Water</em> scores 10th on the top frequencies list - it also has a lot of strong associations <a href="#tbl-water-coocs">Table&nbsp;2</a>, and while they are mostly normal(drink, poured, glass) it could indicate a lack of water, as it is so prominently mentioned, and adjectives like heated, plastic, fresh, black, and gray could indicate there were issues with water scarcity or purity.</p>
+<p>Below is a plot visualizing the words with the highest association scores with the word <em>water</em> filtered by <strong>signed</strong> <span class="math inline">\(G^2\)</span> and measured against <em>PMI.</em> The size of the dots is indicative of frequency. We observe that the higher the <em>PMI</em> and <strong>signed</strong> <span class="math inline">\(G^2\)</span>, the more they portray scarcity.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-water-assocs" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Anthropocene-Literature_files/figure-html/fig-water-assocs-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Association Scores For the Word Water in McCarthy</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As seen in <a href="#fig-water-assocs">Figure&nbsp;1</a>, the words with the highest <strong>signed</strong> <span class="math inline">\(G^2\)</span> and <strong>PMI</strong> are <em>heated, drip, drink, poured, slow, fresh,</em> and <em>bottle. Heated</em> refers to the lack of hot water, lack of electricity, and infrastructure. <em>Drip</em> indicates slow stream of water or scarcity of water.</p>
+<section id="co-occurrences-of-road-in-mccarthy" class="level4" data-number="2.1.1.1">
+<h4 data-number="2.1.1.1" class="anchored" data-anchor-id="co-occurrences-of-road-in-mccarthy"><span class="header-section-number">2.1.1.1</span> Co-occurrences of <em>Road in</em> McCarthy</h4>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-road-coocs" class="anchored">
+
+<table class=" lightable-paper" style="font-size: 14px; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;3:  Words with the highest association scores with the word Road </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> type </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> b </th>
+   <th style="text-align:right;"> c </th>
+   <th style="text-align:right;"> d </th>
+   <th style="text-align:right;"> dir </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> side </td>
+   <td style="text-align:right;"> 12 </td>
+   <td style="text-align:right;"> 1515 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 56878 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crossed </td>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:right;"> 1518 </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 56900 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> shuffling </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1524 </td>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:right;"> 56932 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> curve </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1524 </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 56931 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> trees </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 1520 </td>
+   <td style="text-align:right;"> 49 </td>
+   <td style="text-align:right;"> 56885 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> watching </td>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 1521 </td>
+   <td style="text-align:right;"> 44 </td>
+   <td style="text-align:right;"> 56890 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> stood </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 1514 </td>
+   <td style="text-align:right;"> 188 </td>
+   <td style="text-align:right;"> 56746 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> stopped </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 1520 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 56868 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ran </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1524 </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 56921 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> south </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1524 </td>
+   <td style="text-align:right;"> 18 </td>
+   <td style="text-align:right;"> 56916 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sat </td>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:right;"> 1517 </td>
+   <td style="text-align:right;"> 170 </td>
+   <td style="text-align:right;"> 56764 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ate </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1523 </td>
+   <td style="text-align:right;"> 39 </td>
+   <td style="text-align:right;"> 56895 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> edge </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1524 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 56909 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tracks </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1524 </td>
+   <td style="text-align:right;"> 25 </td>
+   <td style="text-align:right;"> 56909 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> country </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1524 </td>
+   <td style="text-align:right;"> 28 </td>
+   <td style="text-align:right;"> 56906 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> looked </td>
+   <td style="text-align:right;"> 11 </td>
+   <td style="text-align:right;"> 1516 </td>
+   <td style="text-align:right;"> 218 </td>
+   <td style="text-align:right;"> 56716 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> black </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 1523 </td>
+   <td style="text-align:right;"> 64 </td>
+   <td style="text-align:right;"> 56870 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> holding </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1524 </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 56889 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> standing </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1524 </td>
+   <td style="text-align:right;"> 46 </td>
+   <td style="text-align:right;"> 56888 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> find </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1524 </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 56881 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> watched </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 1524 </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 56878 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-road-assocs" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Anthropocene-Literature_files/figure-html/fig-road-assocs-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Association Scores For the Word Road in McCarthy</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As seen in <a href="#tbl-road-coocs">Table&nbsp;3</a>, <em>road</em> has more than normal amount of strong associations, as is thematic to the book. e.g.&nbsp;side, crossed, stopped, stood, ran, south, ate, tracks, country.</p>
+<p>I also looked at <em>Dead.</em> Following the analysis above, <em>Dead</em> has a strong attraction to words such as <em>trees, grass, limbs, black, wind,</em> and <em>fire.</em> These indicate the destruction of nature.</p>
+<div id="tbl-dead-coocs" class="cell tbl-parent quarto-layout-panel anchored">
+
+</div>
+</section>
+</section>
+<section id="severance" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="severance"><span class="header-section-number">2.1.2</span> Severance</h3>
+<p>The novel is set in the aftermath of a pandemic and explores the theme of how humanity’s actions have led to ecological disaster and the end of human civilization. The novel also critiques consumer culture, which is portrayed as a driving force behind the collapse of society.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-ma-flist" class="anchored">
+
+<table class=" lightable-paper" style="font-size: 14px; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;4:  Severance’s Most Frequent Words </caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> rank </th>
+   <th style="text-align:left;"> type </th>
+   <th style="text-align:right;"> abs_freq </th>
+   <th style="text-align:right;"> nrm_freq </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> time </td>
+   <td style="text-align:right;"> 161 </td>
+   <td style="text-align:right;"> 18.924034 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> looked </td>
+   <td style="text-align:right;"> 156 </td>
+   <td style="text-align:right;"> 18.336331 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> office </td>
+   <td style="text-align:right;"> 108 </td>
+   <td style="text-align:right;"> 12.694383 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> work </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 12.576842 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> night </td>
+   <td style="text-align:right;"> 97 </td>
+   <td style="text-align:right;"> 11.401436 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> room </td>
+   <td style="text-align:right;"> 94 </td>
+   <td style="text-align:right;"> 11.048815 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> day </td>
+   <td style="text-align:right;"> 83 </td>
+   <td style="text-align:right;"> 9.755868 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> long </td>
+   <td style="text-align:right;"> 82 </td>
+   <td style="text-align:right;"> 9.638328 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> place </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> 9.520787 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> left </td>
+   <td style="text-align:right;"> 80 </td>
+   <td style="text-align:right;"> 9.403246 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>In <a href="#tbl-ma-flist">Table&nbsp;4</a> <em>Office (109), work(107), and city(73)</em> all hint at capitalism and the metropolitan nature of New York City, the place in which this novel is set. In severance, Capitalism and hyper-globalization of the world have led to the rapid spread of the pandemic and the consequent downfall of humanity.</p>
+<p><em>Fever</em> occurs 59 times and <em>fevered</em> occurs 45 times both appearing in the top 50 most frequent words in Ma’s book painting a very bleak image of the pandemic. I also observed that <em>city</em> (ranked 14th) has strong associations with 3 words: <em>live, leaving,</em> and <em>windows. Leaving</em> indicates migration from the city to safer pastures. <em>Windows</em> refer to the isolation during the pandemic. While <em>face</em> (ranked 16th has the most and strongest associations with <em>masks</em> with a <strong>PMI</strong> of 5.707 and <strong>signed</strong> <span class="math inline">\(G^2\)</span> of 31.133.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-face-coocs" class="anchored">
+
+<table class=" lightable-paper" style="font-size: 14px; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;5:  Words with the highest association scores with the word Face </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> type </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> PMI </th>
+   <th style="text-align:right;"> G_signed </th>
+   <th style="text-align:right;"> exp_a </th>
+   <th style="text-align:right;"> dir </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> masks </td>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:right;"> 5.707359 </td>
+   <td style="text-align:right;"> 31.133455 </td>
+   <td style="text-align:right;"> 0.0956938 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> wash </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 5.832890 </td>
+   <td style="text-align:right;"> 19.261288 </td>
+   <td style="text-align:right;"> 0.0526316 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> water </td>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:right;"> 3.849378 </td>
+   <td style="text-align:right;"> 14.180241 </td>
+   <td style="text-align:right;"> 0.2775120 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> put </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3.385431 </td>
+   <td style="text-align:right;"> 8.797163 </td>
+   <td style="text-align:right;"> 0.2870813 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> looked </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 2.006919 </td>
+   <td style="text-align:right;"> 3.884822 </td>
+   <td style="text-align:right;"> 0.7464115 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Another way to gain a better understanding of how the most frequent words occur in the text, in other words, their context, is to look at concordances <a href="https://masterclm.github.io/mclm/reference/conc.html">(conc ())</a>. Using this function allows us to look for a specific pattern using a regular expression (<a href="https://regexr.com/">regex</a>) and returns the concordance - which is the way this pattern or in our case, the most frequent word appears as well as the words that occur to the left and right.</p>
+<blockquote class="blockquote">
+<p>In the language sciences, concordancing refers to the extraction of words from a given text or texts (<a href="https://ladal.edu.au/kwics.html#ref-lindquist2009corpus">Lindquist 2009, 5</a>). Commonly, concordances are displayed in the form of keyword-in-context displays (KWICs) where the search term is shown in context, i.e.&nbsp;with preceding and following words. Concordancing are central to analyses of text and they often represent the first step in more sophisticated analyses of language data (<a href="https://ladal.edu.au/kwics.html#ref-stafanowitsch2020corpus">Stefanowitsch 2020</a>).</p>
+</blockquote>
+<p>Next, I zoomed in on the word <em>mask</em> in <em>Severance,</em> which is in the top most frequent word occurring 20 times in the text. This word has also the highest number of associations with the word <em>face.</em> In <a href="#tbl-face-coocs">Table&nbsp;5</a>, we see <em>mask</em> appears next to <em>respirator, N95, epidemic, fever, fevered,</em> and others.These associations all fall under the theme of pandemics</p>
+<div class="cell" data-tbl-cap="Concordance with the word mask">
+<div class="cell-output cell-output-stdout">
+<pre><code>Concordance-based data frame (number of observations: 20)
+idx                              left|match|right                           
+  1 ...ide each employee with two N95|masks|. If we wanted more, we could...
+  2 ...here were two sets of N95 face|masks|and latex gloves, each imprin...
+  3 ...rse weren't visible behind our|masks|. Only the stiffened cheeks. ...
+  4 ...and Blythe took off their face|masks|. Blythe said, Should we just...
+  5 ...ny policy for a reason. If the|masks|actually work, don't you thin...
+  6 ...tive tools, such as gloves and|masks|to use when handling prototyp...
+  7 ...eek, our voices muffled by the|masks|, in elevators in the morning...
+  8 .... Our voices, amplified by the|masks|, sounded deeper and more gri...
+  9 ...d begun to understand that the|masks|were not fever-preventative),...
+ 10 ...d flocks, wearing useless face|masks|printed with I ♥ NY. It was a...
+ 11 ..., wearing a variety of fashion|masks|, in all black or leopard pri...
+ 12 ...on magnified by the respirator|masks|that they'd put on as a joke....
+ 13 ...models down the runway in face|masks|, gloves, and even scrubs, ma...
+ 14 ...y by wearing those hideous N95|masks|, who was taking the initiati...
+ 15 ...ned with the Supreme logo. The|masks|seemed to preclude any conver...
+ 16 ... for all employees to wear N95|masks|in the office (before, this h...
+ 17 ...Blythe donned their respirator|masks|, making jokes about “epidemi...
+ 18 ...rs chanting, not wearing their|masks|so their voices could be hear...
+ 19 ... he yelled. We put on our face|masks|and rubber gloves. We went in...
+ 20 ...h Sentinel guards did not wear|masks|(given the scope of the epide...
+
+This data frame has 6 columns:
+   column
+1 glob_id
+2      id
+3  source
+4    left
+5   match
+6   right</code></pre>
+</div>
+</div>
+</section>
+<section id="memory-of-water" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="memory-of-water"><span class="header-section-number">2.1.3</span> Memory of water</h3>
+<p>The novel is set in a post-apocalyptic world where a pandemic has wiped out most of humanity. Droughts, wars, and water crimes are the result of humanity’s attempts to control and manipulate nature through technology. Looking at Itaratna’s top ten most frequently occurring words, we see the most frequent word by large margin occurring 131 in the text. <em>Plastic</em> is the fifth most occurring word in the novel. We also see <em>insect</em> and <em>past-world</em>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-itaranta-flist" class="anchored">
+
+<table class=" lightable-paper" style="font-size: 14px; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;6:  Memory of Water Most Frequent Words </caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> rank </th>
+   <th style="text-align:left;"> type </th>
+   <th style="text-align:right;"> abs_freq </th>
+   <th style="text-align:right;"> nrm_freq </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> water </td>
+   <td style="text-align:right;"> 131 </td>
+   <td style="text-align:right;"> 59.81462 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> house </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 25.56961 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> time </td>
+   <td style="text-align:right;"> 53 </td>
+   <td style="text-align:right;"> 24.19981 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> face </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 18.26401 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> plastic </td>
+   <td style="text-align:right;"> 40 </td>
+   <td style="text-align:right;"> 18.26401 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> turned </td>
+   <td style="text-align:right;"> 36 </td>
+   <td style="text-align:right;"> 16.43761 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> inside </td>
+   <td style="text-align:right;"> 34 </td>
+   <td style="text-align:right;"> 15.52441 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> insect </td>
+   <td style="text-align:right;"> 32 </td>
+   <td style="text-align:right;"> 14.61120 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> past-world </td>
+   <td style="text-align:right;"> 31 </td>
+   <td style="text-align:right;"> 14.15460 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> day </td>
+   <td style="text-align:right;"> 30 </td>
+   <td style="text-align:right;"> 13.69800 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><em>Water</em> scarcity is one of the main topics in Itaranta’s book as seen in <a href="#tbl-itaranta-flist">Table&nbsp;6</a> . <em>Plastic</em> refers to the remnants of past society. While <em>insect</em> is part of a bi-gram <em>insect hood</em> which is a protective mask that people in <em>Memory of Water</em> wear to protect themselves from the insects that have taken over their landscape.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-plastic-assocs" class="anchored">
+
+<table class=" lightable-paper" style="font-size: 14px; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;7:  Plastic assocs </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> type </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> PMI </th>
+   <th style="text-align:right;"> G_signed </th>
+   <th style="text-align:right;"> exp_a </th>
+   <th style="text-align:right;"> dir </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> grave </td>
+   <td style="text-align:right;"> 13 </td>
+   <td style="text-align:right;"> 6.235196 </td>
+   <td style="text-align:right;"> 103.09698 </td>
+   <td style="text-align:right;"> 0.1725688 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> junk </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 6.119719 </td>
+   <td style="text-align:right;"> 22.73728 </td>
+   <td style="text-align:right;"> 0.0431422 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> metal </td>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:right;"> 3.949794 </td>
+   <td style="text-align:right;"> 11.31573 </td>
+   <td style="text-align:right;"> 0.1941399 </td>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The word <em>plastic</em> as seen in <a href="#tbl-plastic-assocs">Table&nbsp;7</a> strong associations with <em>grave, junk,</em> and <em>metal</em>. This refers to the Anthropocene landscape that is covered with residues from the <em>past-world.</em></p>
+<p>I looked at <em>past-world</em> which occurs 30 times in the text and computed its concordances. We see it appears next words such as <em>books, echoes, era, technology,</em> and <em>winters.</em> These indicate nostalgia for older times as well as the destruction of human progress and societal collapse.</p>
+<div class="cell" data-tbl-cap="Concordance with the word past-world">
+<div class="cell-output cell-output-stdout">
+<pre><code>Concordance-based data frame (number of observations: 30)
+idx                           left|  match   |right                         
+  1 ...immer, and I longed for the|past-world|I had never known. I pictur...
+  2 ...think about them, but their|past-world|bleeds into our present-wor...
+  3 ... years old, I had read in a|past-world|book about snow and ice, an...
+  4 ...ut them?' 'Why weren't more|past-world|books preserved?' I knew th...
+  5 ...s drowned, why weren't more|past-world|books rescued?' 'I don't kn...
+  6 ..., rain and sun had worn the|past-world|echoes thin a long time ago...
+  7 ...village: constructed in the|past-world|era and converted later for...
+  8 ...er all. Near the end of the|past-world|era the globe had warmed an...
+  9 ...fused relic of the original|past-world|forms that have been long f...
+ 10 ...vely clear idea of what the|past-world|had been like – or rather, ...
+ 11 ...Sanja's home was one of the|past-world|houses, a one-storey with m...
+ 12 ...arrying the memories of the|past-world|locked within, slowly givin...
+ 13 ...' he said. 'I've heard of a|past-world|master who ordered his son ...
+ 14 ... seemed to run out, because|past-world|plastic took centuries to d...
+ 15 ... you find it weird how much|past-world|technology there still is i...
+ 16 ... always said at school that|past-world|technology was frail and ca...
+ 17 ...th this a major part of the|past-world|technology was gradually lo...
+ 18 ... was a random collection of|past-world|things excavated from the p...
+ 19 ...tinued to turn, but now the|past-world|voice was irrevocably gone....
+ 20 ... of the price of paper, and|past-world|volumes were virtually impo...
+ 21 ...es and summoned the feel of|past-world|winters about which I had r...
+ 22 ...arm, and I was no closer to|past-world|winters. I couldn't imagine...
+ 23 ...ey had been used for in the|past-world|, and I had only kept them ...
+ 24 ...aps then I'd understand the|past-world|, and the people who threw ...
+ 25 ...he broken technology of the|past-world|, metal and plastic intertw...
+ 26 ... comparison. One showed the|past-world|, the world of cold winters...
+ 27 ...istened to the voice of the|past-world|. At times it would wither ...
+ 28 ... little was known about the|past-world|. For all my winter daydrea...
+ 29 ...how winters had been in the|past-world|. I knew the darkness: ever...
+ 30 ... that the disc was from the|past-world|. We had been wrong. 'It's ...
+
+This data frame has 6 columns:
+   column
+1 glob_id
+2      id
+3  source
+4    left
+5   match
+6   right</code></pre>
+</div>
+</div>
+</section>
+<section id="station-eleven" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="station-eleven"><span class="header-section-number">2.1.4</span> Station Eleven</h3>
+<p>The novel is set in the aftermath of a pandemic and explores the theme of how humanity’s actions have led to ecological disaster and the end of human civilization. The novel also critiques consumer culture, which is portrayed as a driving force behind the collapse of society.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-mandel-flist" class="anchored">
+
+<table class=" lightable-paper" style="font-size: 14px; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;8:  Station Eleven Most Frequent Words </caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> rank </th>
+   <th style="text-align:left;"> type </th>
+   <th style="text-align:right;"> abs_freq </th>
+   <th style="text-align:right;"> nrm_freq </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+   <td style="text-align:left;"> time </td>
+   <td style="text-align:right;"> 197 </td>
+   <td style="text-align:right;"> 20.31829 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+   <td style="text-align:left;"> years </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:right;"> 15.67705 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+   <td style="text-align:left;"> road </td>
+   <td style="text-align:right;"> 150 </td>
+   <td style="text-align:right;"> 15.47078 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 4 </td>
+   <td style="text-align:left;"> left </td>
+   <td style="text-align:right;"> 128 </td>
+   <td style="text-align:right;"> 13.20173 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 5 </td>
+   <td style="text-align:left;"> night </td>
+   <td style="text-align:right;"> 126 </td>
+   <td style="text-align:right;"> 12.99545 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:left;"> remember </td>
+   <td style="text-align:right;"> 117 </td>
+   <td style="text-align:right;"> 12.06720 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:left;"> world </td>
+   <td style="text-align:right;"> 111 </td>
+   <td style="text-align:right;"> 11.44837 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 8 </td>
+   <td style="text-align:left;"> room </td>
+   <td style="text-align:right;"> 107 </td>
+   <td style="text-align:right;"> 11.03582 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 9 </td>
+   <td style="text-align:left;"> city </td>
+   <td style="text-align:right;"> 104 </td>
+   <td style="text-align:right;"> 10.72640 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 10 </td>
+   <td style="text-align:left;"> light </td>
+   <td style="text-align:right;"> 103 </td>
+   <td style="text-align:right;"> 10.62327 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><em>road and left</em> represent the theme of mobility; <em>water</em> represents water scarcity. <em>years, time, and remember</em> represent the nostalgia to pre-apocalypse times.</p>
+<p>The word <em>pandemic</em> is observed 16 times in <em>Station Eleven.</em> When looking at its concordances, we see it appearing next to words such as <em>virus</em> and <em>flu</em> which give us clues into the nature of the pandemic. We also see <em>has started, hit, reach, happened,</em> and <em>reach</em> which detail the spread of the disease in this novel.</p>
+<div class="cell" data-tbl-cap="Concordance with the word pandemic">
+<div class="cell-output cell-output-stdout">
+<pre><code>Concordance-based data frame (number of observations: 16)
+idx                            left| match  |right                          
+  1 ... one where there had been no|pandemic|and he'd grown up to be a ph...
+  2 ...sts, so no one mentioned the|pandemic|as she crossed the lobby, al...
+  3 ...r one where there had been a|pandemic|but the virus had had a subt...
+  4 ...tine theory, namely that the|pandemic|had started in Europe, the l...
+  5 ...range ideas?” “He thinks the|pandemic|happened for a reason,” Clar...
+  6 ...tly obsolete by the time the|pandemic|hit, but used by a few peopl...
+  7 .... August remembered his pre-|pandemic|life as an endless sequence ...
+  8 ...course the context, the pre-|pandemic|world that he remembered so ...
+  9 ...d a dozen shopping bags. The|pandemic|would reach North America in...
+ 10 ...ned to CNN. The story of the|pandemic|'s arrival in North America ...
+ 11 ...For a whole decade after the|pandemic|, I kept looking at the sky....
+ 12 ...emplating the flu, the great|pandemic|, and let me ask you this. H...
+ 13 ...n the face of a probable flu|pandemic|, but couldn't resist. He pl...
+ 14 ...hat it was developing into a|pandemic|. But now he watched the too...
+ 15 ...s was three weeks before the|pandemic|. They still had the indescr...
+ 16 ...ibly be out there except the|pandemic|? Nonetheless, the scouting ...
+
+This data frame has 6 columns:
+   column
+1 glob_id
+2      id
+3  source
+4    left
+5   match
+6   right</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="statistical-analysis" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="statistical-analysis"><span class="header-section-number">2.2</span> Statistical Analysis</h2>
+<p>After zooming in on each novel and examining how each novel addresses the impact of the Anthropocene in the previous section, the study zooms out and looks at the corpus as a whole. The following section covers the keyword analysis where I look at which words are attracted to the target corpus versus the reference target.</p>
+<section id="keyword-analysis" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="keyword-analysis"><span class="header-section-number">2.2.1</span> Keyword Analysis</h3>
+<p>In the keyword analysis, the Anthrocorpus(target) is compared to the bestsellers(reference) corpus, and by comparing how often words occur in the target corpus vs in the reference corpus, it is calculated whether a word is occurring more frequently in the target corpus, than it is expected to occur. By looking at which words are significantly more attracted to each other in target versus reference, we gain a better understanding of the context and the keywords that are distinctive to each text.</p>
+<p>The strength of the results is further confirmed by the assoc_scores function, which is filtered by PMI which compares the observed frequency versus the expected frequency (<em>PMI</em> &gt;= 1.1), the Signed <span class="math inline">\(G^2\)</span> strength measures(<em>G_signed</em> &gt;= 4), as well as the frequencies (a &gt; 3). <em>PMI</em> compares the observed frequency to the expected frequency. A <em>PMI</em> higher than one means the collocation occurs 2 times more often than expected. While Signed <span class="math inline">\(G^2\)</span> is a likelihood ratio test statistic also called the G-test of goodness-of-fit.</p>
+<p>As previously discussed, combining different effect size measures and strength of evidence allows for a clearer view of how the Anthropocene words are used and offers a more solid grasp of the context whether it is the text of each novel or the Anthropocene corpusas a whole. By doing so, we are able to look at the strength of the effect size measures which adds to the level of certainty that there is indeed a difference between the target corpus and the reference corpus. Moreover, we get to zoom in on the Anthropocene-specific words and examine their themes.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-keyword" class="anchored">
+
+<table class=" lightable-paper" style="font-size: 14px; font-family: &quot;Arial Narrow&quot;, arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;"><caption>Table&nbsp;9:  Top 20 Keywords of the Anthrocorpus filtered by frequency, PMI, and G-signed. </caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> type </th>
+   <th style="text-align:right;"> a </th>
+   <th style="text-align:right;"> PMI </th>
+   <th style="text-align:right;"> G_signed </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> plastic </td>
+   <td style="text-align:right;"> 186 </td>
+   <td style="text-align:right;"> 1.254662 </td>
+   <td style="text-align:right;"> 251.34889 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> cart </td>
+   <td style="text-align:right;"> 152 </td>
+   <td style="text-align:right;"> 1.311994 </td>
+   <td style="text-align:right;"> 233.18285 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> snow </td>
+   <td style="text-align:right;"> 137 </td>
+   <td style="text-align:right;"> 1.100698 </td>
+   <td style="text-align:right;"> 133.94929 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> lighthouse </td>
+   <td style="text-align:right;"> 101 </td>
+   <td style="text-align:right;"> 1.394969 </td>
+   <td style="text-align:right;"> 195.30841 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> beach </td>
+   <td style="text-align:right;"> 99 </td>
+   <td style="text-align:right;"> 1.191450 </td>
+   <td style="text-align:right;"> 117.03721 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> expedition </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> 1.291890 </td>
+   <td style="text-align:right;"> 118.72513 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> prophet </td>
+   <td style="text-align:right;"> 81 </td>
+   <td style="text-align:right;"> 1.377281 </td>
+   <td style="text-align:right;"> 146.80631 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> fever </td>
+   <td style="text-align:right;"> 74 </td>
+   <td style="text-align:right;"> 1.145005 </td>
+   <td style="text-align:right;"> 79.39108 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> border </td>
+   <td style="text-align:right;"> 68 </td>
+   <td style="text-align:right;"> 1.160518 </td>
+   <td style="text-align:right;"> 75.35601 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> tarp </td>
+   <td style="text-align:right;"> 62 </td>
+   <td style="text-align:right;"> 1.394960 </td>
+   <td style="text-align:right;"> 119.88091 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> bible </td>
+   <td style="text-align:right;"> 56 </td>
+   <td style="text-align:right;"> 1.179971 </td>
+   <td style="text-align:right;"> 64.63021 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> flu </td>
+   <td style="text-align:right;"> 51 </td>
+   <td style="text-align:right;"> 1.366969 </td>
+   <td style="text-align:right;"> 89.70369 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> crawler </td>
+   <td style="text-align:right;"> 48 </td>
+   <td style="text-align:right;"> 1.394953 </td>
+   <td style="text-align:right;"> 92.80547 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> compound </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 1.168213 </td>
+   <td style="text-align:right;"> 52.92684 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> fevered </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 1.364610 </td>
+   <td style="text-align:right;"> 82.12948 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> mall </td>
+   <td style="text-align:right;"> 47 </td>
+   <td style="text-align:right;"> 1.394953 </td>
+   <td style="text-align:right;"> 90.87154 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> facility </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 1.332248 </td>
+   <td style="text-align:right;"> 72.39810 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> photo </td>
+   <td style="text-align:right;"> 45 </td>
+   <td style="text-align:right;"> 1.131949 </td>
+   <td style="text-align:right;"> 46.97683 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> insect </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 1.260682 </td>
+   <td style="text-align:right;"> 56.12118 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> paradice </td>
+   <td style="text-align:right;"> 41 </td>
+   <td style="text-align:right;"> 1.394948 </td>
+   <td style="text-align:right;"> 79.26800 </td>
+  </tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>The keyword analysis returns 1150 types or unique words in the list. An exploration shows that words such as <em>tarp, flu, fevered, carts, emigrant, masks, spores, past-world, sample expeditions, caravans, trailer, virus, and can</em> - stand out. In the table below, we looked at the top 100 most frequent words in the Anthrocorpus and then we categorized them according to their relevant themes. This shows that those are some of the words somewhat typical to books written about the Anthropocene/Cli-Fi.</p>
+<table class="table">
+<caption>Words of the Anthropocene categorized by themes</caption>
+<colgroup>
+<col style="width: 36%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Anthropocene Theme</th>
+<th>Word</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Religion</td>
+<td>Prophet, baptists, bibles, paradice, ark, congregation, devotees</td>
+</tr>
+<tr class="even">
+<td>pandemics</td>
+<td>flu, fevered, crawler, pesthouse, masks, spores, virus, corpse, fungal, pandemic, quarantine, vaccine, parasites, microbes</td>
+</tr>
+<tr class="odd">
+<td>movement and migration</td>
+<td>emigrants, caravans, ferry, trailer, carts, camper, carriage, migrants</td>
+</tr>
+<tr class="even">
+<td>nostalgia</td>
+<td>past-world, iPhone, mall, walmart, googled, facility, compound, photo,</td>
+</tr>
+<tr class="odd">
+<td>food scarcity</td>
+<td>canned</td>
+</tr>
+<tr class="even">
+<td>water crisis</td>
+<td>tidewater, water, waterskin</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="interpretation" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">2.3</span> Interpretation</h2>
+<p>The various analyses of word frequencies, collocates, and keywords carried on in this study returned interesting results about the prevalent themes and contextual nuances of the Cli-Fi novels.</p>
+<p>Through a thorough exploration of the word frequencies, we saw certain terms recur frequently within the corpus, reflecting key concerns of the Anthropocene genre. In McCarthy’s book, words like <em>road, water,</em> and <em>dead</em> dominate the most frequent word list, indicating a focus on mobility, resource scarcity, and post-apocalyptic uninhabitable landscape. In Ling Ma’s <em>Severance,</em> we get to see themes of consumer culture contrasted with societal collapse through words such as <em>office, work,</em> and <em>city.</em> We encountered pandemic-related terms in both <em>Severance</em> and <em>Station Eleven</em> such as <em>fevered, masks, contagious, etc.</em></p>
+<p>Furthermore, the analysis of collocations provides a deeper understanding of how specific words are semantically linked within the context of each novel. For instance, in <em>The Road,</em> the collocations of the word <em>water</em> reveal associations with words like <em>heated, drip,</em> and <em>drink,</em> suggesting the struggle for water access in a desolate landscape. Similarly, the collocations of <em>dead</em> in the same novel show connections with terms like <em>trees, grass,</em> and <em>fire</em>, depicting vivid imagery of environmental devastation and loss. Such collocation patterns expose the thematic richness and narrative intricacies that amplify the Anthropocene discourse in Cli-Fi literature.</p>
+<p>In the keyword analysis, a comparative study between the Anthropocene target corpus and the reference corpus of bestsellers provides quantitative evidence of distinctive words and themes in the former. The presence of words like <em>flu, fevered, masks, and pandemic</em> underscores the emphasis on pandemics and health crises, which resonate with the contemporary climate of global concerns. Additionally, terms such as <em>emigrants, caravans, and trailer</em> point towards the recurring motif of movement and migration, reflecting the displacement and mobility resulting from climate-induced challenges. This keyword analysis reaffirms the thematic trends observed in the word frequencies and collocation analyses, highlighting the presence of recurring concerns in Anthropocene literature, from resource scarcity to ecological deterioration and societal upheaval.</p>
+<p>In conclusion, the use of word frequencies, collocation patterns, and keyword associations in this study provides a comprehensive lens through which the themes of the Anthropocene are examined. These analyses collectively illustrate the multidimensional nature of Anthropocene literature, enabling a nuanced exploration of the complex interplay between humanity, the environment, and the consequences of our actions. Through the examination of textual patterns, this study highlights the narrative strategies employed by authors to engage readers in critical conversations surrounding climate change, resource exploitation, and the fragile balance between human civilization and the natural world.</p>
+<p>Reflecting on the results of this study, we can see that all seven novels carried the Anthropocene themes in their lines. The themes of migration/displacement, food and water scarcity, and post-apocalyptic landscape are strongly present in each of the novels.</p>
+<p>Moreover, when looking at the concordances of Anthropocene-specific terms, we were able to see in juxtaposition the state of the earth before and after human intervention has destroyed the planet rendering it unlivable.</p>
+</section>
+<section id="limitations" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="limitations"><span class="header-section-number">2.4</span> Limitations</h2>
+<p>Though the size of both target and reference corpora is limited, the different analyses conducted and the combination of the effect size and strength of evidence association measures resulted in a list of Anthropocene words thus answering our research question. The corpus, while carefully selected, contains only seven novels, which may limit the generalization of the findings. Therefore, it would be curious to inspect a corpus with a larger scope, sample size and composition.</p>
+<p>Aside from the size of the data, another limitation would be the removal of certain words, names, or hyper-specific details from the text that could potentially have affected the context and meaning of the analyzed passages. Decisions about what to exclude and what to include could have introduced unintended biases.</p>
+<p>Additionally, while the study used a combination of statistical and effect size measures, it could benefit from advanced statistical analysis such as linear regression or correspondence analysis. These methods could provide stronger evidence and a wider understanding of the Anthropocene corpus.</p>
+<p>In summary, this study provided valuable insights into the themes and linguistic features of the Anthropocene literature. However, the limitations listed above should be acknowledged to ensure a comprehensive and loyal interpretation of the study’s findings.</p>
+</section>
+</section>
+<section id="conclusions" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> <strong>Conclusions</strong></h1>
+<p>The Anthropocene Novel has been the topic of literary focus in recent years due to the growing number of fiction that imagines the end of the world as propelled by humankind. This genre presents a valuable opportunity for understanding how literature deals with climate change and the different environmental issues that humanity is facing.</p>
+<blockquote class="blockquote">
+<p>When the novel incorporates things implicated in climate change—climate models, glaciers, cars, future hopes, weather—it becomes impossible to read without the preoccupation of climate change. […]These sites are integral to the meaning-making of a novel, and each of them is being radically reordered as we locate ourselves in the Anthropocene. […] As still more novels incorporate the weather, technology, and ideas of the Anthropocene, features of these early climate change novels will be diffused into literature at large. <span class="citation" data-cites="Trexler_2015">Trexler (<a href="#ref-Trexler_2015" role="doc-biblioref">2015: 16</a>)</span></p>
+</blockquote>
+<p>Therefore, the main task of science fiction is not to prophesize and predict the future, but rather explore the different ways the future may unfold<strong>,</strong> penetrate our collective conscience, and guide humanity to change its ways. By mining the text for keywords and looking at their larger context, examining their occurrences and co-occurrences within a given text, and then comparing the Anthrocorpus to a randomized literary corpus, this study in its two parts allowed us to gain a better understanding of the overarching themes of the Anthropocene at first glance.</p>
+<p>The first part introduced the research question along with background information and the themes of the Anthropocene. I then move on to talk about the methodology followed in the analysis as well as the corpus composition. In the second part of the paper, we get a deeper look into the Anthropocene literature by first zooming in on the individual target corpus novels and their word frequencies. On top of that, I zoomed in closer into select words from the most frequent lists and looked at their concordances to gain a better understanding of how those words occur in the texts. Furthermore, I zoomed out to look at the Anthropocene as a whole and analyze it in comparison to a target corpus by running a keyword analysis that allowed us to extract Anthropocene-specific terms.</p>
+<p>Trexler insists that “the imaginative capacities of the novel have made it a vital site for the articulation of the Anthropocene.” We can add to that the linguistic nature and power of words and how they are used in the Anthropocene novel also play an essential role in shaping our collective consciousness and ultimately affect our actions and perspectives. Astronomer Carl Sagan believes in the power that science fiction holds through which it allows humanity to explore “alternative futures, both experimental and conceptual”. To Sagan, “the greatest human significance of science fiction may be as thought experiments, as attempts to minimize future shock, as contemplations of alternative destinies.” In fact, it has been argued that the human ability to imagine, is necessary so that the imagined “person” dies, instead of the real one.</p>
+<p>After careful examination of the recurrent themes of the Anthropocene through a thorough analysis of the different keywords and concordances that occur in the text, this paper was able to identify the words of Anthropocentric nature. The novels analyzed in this study portrayed the devastating effects of human activity on the planet and the consequent environmental disasters and paint a very vivid and eerily close image of the realities of the climate crises. Thus, the contemporary writer is considered innocent of Amitav Ghosh’s accusation of climate deafness.</p>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-Evert_2007" class="csl-entry" role="doc-biblioentry">
+Evert, Stefan. 2009. Corpora and collocations. (Ed.) Anke Lüdeling &amp; Merja Kytö. <em>Institute of Cognitive Science, University of Osnabrück</em>. Berlin, New York: De Gruyter Mouton 2. 1212–1248. <a href="https://doi.org/doi:10.1515/9783110213881.2.1212">https://doi.org/doi:10.1515/9783110213881.2.1212</a>. <a href="http://www.jstatsoft.org">http://www.jstatsoft.org</a>.
+</div>
+<div id="ref-ghosh_2017" class="csl-entry" role="doc-biblioentry">
+Ghosh, Amitav. 2017. <em>The great derangement: Climate change and the unthinkable</em>. The University of Chicago Press.
+</div>
+<div id="ref-R-here" class="csl-entry" role="doc-biblioentry">
+Müller, Kirill. 2020. <em>Here: A simpler way to find your files</em>. <a href="https://CRAN.R-project.org/package=here">https://CRAN.R-project.org/package=here</a>.
+</div>
+<div id="ref-R-base" class="csl-entry" role="doc-biblioentry">
+R Core Team. 2022. <em>R: A language and environment for statistical computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-Silge_2017" class="csl-entry" role="doc-biblioentry">
+Silge, Julia &amp; David Robinson. 2017. <em>Text mining with r: A tidy approach</em>. 1st edn. O’Reilly Media, Inc. <a href="https://www.tidytextmining.com/">https://www.tidytextmining.com/</a>.
+</div>
+<div id="ref-R-mclm" class="csl-entry" role="doc-biblioentry">
+Speelman, Dirk &amp; Mariana Montes. 2022. <em>Mclm: Mastering corpus linguistics methods</em>.
+</div>
+<div id="ref-Trexler_2015" class="csl-entry" role="doc-biblioentry">
+Trexler, Adam. 2015. <em>Anthropocene fictions: The novel in a time of climate change</em>. University of Virginia Press.
+</div>
+<div id="ref-tidyverse2019" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. Welcome to the <span class="nocase">tidyverse</span>. <em>Journal of Open Source Software</em> 4(43). 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-Zhu_2021" class="csl-entry" role="doc-biblioentry">
+Zhu, Hao. 2021. <em>Construct complex table with <span>“kable”</span> and pipe syntax [r package kableextra version 1.3.4]</em>. <em>The Comprehensive R Archive Network</em>. Comprehensive R Archive Network (CRAN). <a href="https://cran.r-project.org/web/packages/kableExtra/index.html">https://cran.r-project.org/web/packages/kableExtra/index.html</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
